@@ -30,9 +30,13 @@ const userSchema = new mongoose.Schema({
     phoneNumber : {
         type:String,
         required:true,
+        // only bg?
         match:/^\+359\d{9}$/
     }    
 });
+
+// rent history
+// credit card number
 
 module.exports = {
     userSchema:userSchema,
