@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-telerik-team-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Infinite-Recursion/CoolBizz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Infinite-Recursion/CoolBizz/issues"
+  },
+  "homepage": "https://github.com/Team-Infinite-Recursion/CoolBizz#readme",
+  "devDependencies": {
+    "generator-express": "^2.14.0",
+    "yo": "^1.8.5"
+  },
+  "dependencies": {
+    "mongoose": "^4.7.0"
+  }
+}
