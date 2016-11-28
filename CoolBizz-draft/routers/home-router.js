@@ -2,6 +2,7 @@ const express = require('express');
 let app = require('../config/app-config').app;
 
 let router = new express.Router();
+let controller = require('../controllers/home-controller');
 
 router
     .get('/sign-up',controller.signUp)
