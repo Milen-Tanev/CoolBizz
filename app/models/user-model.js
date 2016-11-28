@@ -33,3 +33,8 @@ const userSchema = new mongoose.Schema({
         match:/^\+359\d{9}$/
     }    
 });
+
+module.exports = {
+    userSchema:userSchema,
+    User:mongoose.model('User', userSchema)
+}
