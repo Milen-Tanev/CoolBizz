@@ -5,6 +5,7 @@ module.exports = {
         const dbDev = 'mongodb://localhost:27017/drones';
         mongoose.connect(dbDev);
         const db = mongoose.connection;
+
         // const dbProd = 'mongodb://<dbname>:<dbpass>@ds111748.mlab.com:11748/drone-fleet'
 
 
