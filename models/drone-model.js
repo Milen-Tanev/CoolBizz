@@ -22,7 +22,6 @@ const droneSchema = mongoose.Schema({
 });
 
 module.exports = {
-    droneSchema: droneSchema,
+    droneSchema,
     Drone: mongoose.model('Drone', droneSchema)
 }
-

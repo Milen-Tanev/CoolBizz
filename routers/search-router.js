@@ -1,11 +1,11 @@
 const express = require('express');
-let app = require('../config/app-config').app;
+let app = require('../config/app-config').app,
+    controller = require('../controllers/search-controller');
 
 let router = new express.Router();
-let controller = require('../controllers/search-controller');
 
-router.get('/',controller.search);
+router.get('/', controller.search);
 
-app.use('/search',router);
+app.use('/search', router);
 
 module.exports = router;
