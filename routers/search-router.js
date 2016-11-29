@@ -6,7 +6,7 @@ let router = new express.Router();
 
 router
     .get('/drones', controller.searchDrones)
-    .get('/services',controller.searchServices);
+    .get('/services', controller.searchServices);
 
 app.use('/search', router);
 
