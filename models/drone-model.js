@@ -13,6 +13,10 @@ const droneSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    pricePerDay : {
+        type:Number,
+        required:true
+    },
     startRentDate: [{
         type: Date
     }],
