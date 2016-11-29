@@ -1,0 +1,21 @@
+{
+  "name": "package.json",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    ""
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Team-Infinite-Recursion/CoolBizz",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
