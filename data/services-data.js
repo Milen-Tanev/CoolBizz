@@ -1,4 +1,8 @@
-module.exports = function(Service) {
+module.exports = function(models) {
+    let {
+        Service
+    } = models;
+
     return {
         getAllServices() {
             return new Promise((resolve, reject) => {
@@ -8,8 +12,8 @@ module.exports = function(Service) {
                     }
 
                     return resolve(services);
-                })
-            })
+                });
+            });
         }
-    }
-}
+    };
+};

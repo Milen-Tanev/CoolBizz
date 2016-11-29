@@ -1,5 +1,18 @@
 const mongoose = require('mongoose');
-const serviceSchema = require('./service-model').serviceSchema;
+// const serviceSchema = require('./service-model').serviceSchema;
+
+
+// db.Services.find({})
+let validServices = [
+    'High-resolution photo & video',
+    'Thermal inspection via sensors',
+    'Supply Deliveries',
+    'Fire Response',
+    'Search and Rescue Operations',
+    'Chemical, Biological, Radiological, Nuclear, or Explosive(CBRNE) Event',
+    'Logistics Support',
+    'Disaster recovery'
+];
 
 const droneSchema = mongoose.Schema({
     name: {
@@ -10,7 +23,10 @@ const droneSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    services: [serviceSchema],
+    serviceSupported: {
+        type: String,
+        enum: validServices
+    },
     pricePerDay: {
         type: Number,
         required: true
@@ -26,4 +42,4 @@ const droneSchema = mongoose.Schema({
 module.exports = {
     droneSchema,
     Drone: mongoose.model('Drone', droneSchema)
-}
+};

@@ -1,35 +1,30 @@
-module.exports = function(db) {
+module.exports = function(models) {
+    let {
+        User
+    } = models;
+
     return {
-
-        /* Drones */
-        /* Servicess */
-        /* Users */
         createUser(username, password) {
-            let user = {
-                username,
-                password,
-                usernameToLower: username.toLowerCase()
-            };
-
-            db.get('users').insert(user)
-                .value();
-
-            db.write();
-
-            return user;
+            let user = new User({ username, password });
+            return new Promise((resolve, reject) => {
+                user.save(err => {
+                    if (err) {
+                        return reject(err);
+                    }
+                    return resolve(user);
+                });
+            });
         },
         getAllUsers() {
-            return db.get('users')
-                .value();
-        },
-
-        getUserByUsername(username) {
-            let user = db.get('users')
-                .find({
-                    usernameToLower: username.toLowerCase()
-                })
-                .value();
-            return user || null;
+            return new Promise((resolve, reject) => {
+                User.find()
+                    .exec((err, powers) => {
+                        if (err) {
+                            return reject(err);
+                        }
+                        return resolve(powers);
+                    });
+            });
         }
 
     };
