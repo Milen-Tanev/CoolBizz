@@ -4,7 +4,9 @@ let app = require('../config/app-config').app,
 
 let router = new express.Router();
 
-router.get('/', controller.search);
+router
+    .get('/drones', controller.searchDrones)
+    .get('/services',controller.searchServices);
 
 app.use('/search', router);
 
