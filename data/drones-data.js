@@ -20,6 +20,11 @@ module.exports = function(Drone) {
                     return resolve(drone);
                 })
             })
+        },
+        getAllDronesWithService(service) {
+            return new Promise((resolve,reject) => {
+                Drone.find({})
+            })
         }
     }
 }

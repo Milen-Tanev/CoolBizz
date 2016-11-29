@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const serviceSchema = require('./service-model').serviceSchema;
 
 const droneSchema = mongoose.Schema({
     name: {
@@ -9,13 +10,10 @@ const droneSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    service: {
-        type: String,
+    services: [serviceSchema],
+    pricePerDay: {
+        type: Number,
         required: true
-    },
-    pricePerDay : {
-        type:Number,
-        required:true
     },
     startRentDate: [{
         type: Date
