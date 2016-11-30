@@ -5,11 +5,11 @@ module.exports = function(app, data) {
 let controller = require('../controllers/drones-controller')(data);
 
 router
-    .get("/", controller.listDrones);
+    .get('/drones', controller.listDrones);
 
 
     //.get('/:id',controller.getDroneDetails);
 
-app.use('/drones',router);
+app.use('/',router);
 }
 

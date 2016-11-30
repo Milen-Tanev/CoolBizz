@@ -15,7 +15,8 @@ let controller = require('../controllers/user-controller')(data);
 //     .post("/logOut", controller.logOut);
 
 router
-    .get("user/sign-up", controller.signUp);
+    .get('/sign-up', controller.signUp)
+    //.get('/sign-out', controller.signOut)
 
-app.use('/user', router);
+app.use('/', router);
 }
