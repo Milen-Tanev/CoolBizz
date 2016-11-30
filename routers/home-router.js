@@ -1,17 +1,11 @@
 const express = require('express');
-let app = require('../config/app-config').app;
 
-let router = new express.Router();
-let controller = require('../controllers/home-controller');
+let router = express.Router();
 
+module.exports = function( app, data ) {
+let controller = require('../controllers/home-controller')(data);
 router
-    .get('/sign-up', controller.signUp)
-    .get('/log-in', controller.logIn)
-    .post('/sign-up', controller.register)
-    // .post('log-in', passport.authenticate('local', { failureRedirect: "/auth/log-in" }),
-    //     (req, res) => res.redirect("/"))
-    .post('/sign-out', controller.signOut);
+    .get("/", controller.home);
 
-app.use('/auth', router);
-
-module.exports = router;
+app.use('/', router);
+}

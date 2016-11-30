@@ -1,15 +1,20 @@
 const express = require('express');
-const app = require('../config/app-config').app;
-const controller = require('../controllers/registation-controller');
 
-let router = new express.Router();
+let router = express.Router();
 
+module.exports = function( app, data ) {
+let controller = require('../controllers/user-controller')(data);
 router
-    .get('/',controller.getRegistration)
-    .post('/',controller.register);
+    .get('/registration', controller.register);
 
-app.use('/register',router);
+app.use('user/registration', router);
+}
+// router
+//     .get('/',controller.getRegistration)
+//     .post('/',controller.register);
 
-module.exports = router;
+// app.use('/register',router);
+
+// module.exports = router;
 
 
