@@ -1,3 +1,5 @@
+/* globals console */
+
 const config = require('./config');
 let dbFactory = require('./db');
 let dataService = require('./data')(dbFactory.getDb());
