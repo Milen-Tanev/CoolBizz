@@ -31,10 +31,21 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         match: /^\+\d{12}$/
+    },
+    verificationStatus: {
+        phone: Boolean,
+        email: Boolean
+    },
+    statistics: {
+        flights: {
+            total: Number,
+            lastFlightTime: Date
+        },
+        servicesCurrentlyUsing: []
     }
 });
 
 module.exports = {
     userSchema,
     User: mongoose.model('User', userSchema)
-}
+};
