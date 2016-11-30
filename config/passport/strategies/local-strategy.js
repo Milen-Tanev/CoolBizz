@@ -1,4 +1,4 @@
-const LocalStrategy = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 
 module.exports = function (passport, data) {
     const authStrategy = new LocalStrategy(
