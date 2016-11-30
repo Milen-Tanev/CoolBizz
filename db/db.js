@@ -17,7 +17,7 @@ module.exports = {
         });
 
 
-
+        let sampleInitialData = require('./initialData');
 
 
         // test to see if DB is working
