@@ -1,0 +1,26 @@
+extends ../_layout
+
+block content
+
+    .container
+        h1.well Registration Form
+        .col-lg-12
+        .row
+        form
+        .col-sm-12
+        .row
+        .col-sm-6.form-group
+            label First Name
+            input.form-control(type="text" placeholder="Enter First Name Here..")
+        .col-sm-6
+            label Last Name
+            input.form-control(type="text" placeholder="Enter Last Name Here..")
+        .form-group
+        .row
+        .form-group
+            label Phone Number
+            input.form-control(type="text" placeholder="Enter Phone Number Here..")
+        .form-group
+            label Email Address
+            input.form-control(type="text" placeholder="Enter Email Address Here..")
+        button.btn.btn-lg.btn-info(type="button") Submit
