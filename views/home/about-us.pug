@@ -3,3 +3,7 @@ extends ../_layout
 block content
     h1 Team Infinite Recursion
     h2 Members:
+    ul
+    each member in Members
+        li= member.name
+        p= member.github
