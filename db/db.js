@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 module.exports = {
     getDb() {
-        const dbDev = 'mongodb://localhost:27017/drones';
-        // const dbProd = 'mongodb://<dbname>:<dbpass>@ds111748.mlab.com:11748/drone-fleet'
+        // const dbDev = 'mongodb://localhost:27017/drones';
+        const dbProd = 'mongodb://droneMaster:nodejstelerik@ds111748.mlab.com:11748/drone-fleet';
 
-        mongoose.connect(dbDev);
+        mongoose.connect(dbProd);
         const db = mongoose.connection;
 
         db.on('error', (err) => {
@@ -17,7 +17,7 @@ module.exports = {
         });
 
 
-        let sampleInitialData = require('./initialData');
+        // let sampleInitialData = require('./initialData');
 
 
         // test to see if DB is working
