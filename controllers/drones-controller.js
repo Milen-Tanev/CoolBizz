@@ -1,11 +1,13 @@
 /* globals module */
 
-module.exports = function(data) {
+module.exports = function (data) {
     return {
         listDrones(req, res) {
-            return res.render('drones/drones-list', {
-                user: req.user
+            data.getAllDrones().then(drones => {
+                res.render('drones/drones-list', {
+                    drones: drones
+                });
             });
         }
-    };
-};
+    }
+}
