@@ -3,10 +3,13 @@ module.exports = function(models) {
         Drone
     } = models;
 
+//console.log(Drone);
+//    let Drone = require('../models/drone-model').Drone;
+
     return {
         getAllDrones() {
             return new Promise((resolve, reject) => {
-                Drone.find((err, drones) => {
+                Drone.Drone.find((err, drones) => {
                     if (err) {
                         return reject(err);
                     }

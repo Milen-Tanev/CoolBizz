@@ -2,3 +2,10 @@ extends ../_layout
 
 block content
     h1 LIST OF DRONES
+    div
+        ul
+        each drone in drones
+            li
+                a(href='/drones'+drone._id)= drone.name
+                p= drone.description
+                img(src= drone.image height='150' width ='150')

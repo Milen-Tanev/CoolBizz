@@ -2,7 +2,7 @@
 
 const config = require('./config');
 let dbFactory = require('./db');
-let dataService = require('./data')(dbFactory.getDb());
+let dataService = require('./data/data-loader')(dbFactory.getDb());
 
 const app = require('./config/app-config')(dataService);
 require('./routers')(app, dataService);
