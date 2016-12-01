@@ -106,12 +106,13 @@ const someThirdDrone = new Drone({
 let dronesArr = [someDrone, someSecondDrone, someThirdDrone];
 
 dronesArr.forEach(dr => dr.save((err, entry, numAffected) => {
-    const repetitions = 20;
-    Array(repetitions).join('-');
-    console.log(`${numAffected} data entiry added`);
+
+    console.log('--------------');
+
+    console.log(`${numAffected} data entry added`);
     console.log(entry.name + ' created');
-    Array(repetitions).join('-');
+
     if (err) {
-        console.log(`Oops Error found ${err}`);
+        console.log(`Oops Error found: ${err}`);
     }
 }));

@@ -1,4 +1,7 @@
-/* globals module */
+/* globals module, process */
+
+let port = process.env.PORT || 3000;
+
 module.exports = {
-    PORT: 3000
+    PORT: port
 };
