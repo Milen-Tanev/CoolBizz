@@ -5,5 +5,7 @@ block content
     h2 Members:
     ul
     each member in Members
-        li= member.name
-        p= member.github
+        li
+            p= member.name
+            p
+                a(href= member.github)= member.github
