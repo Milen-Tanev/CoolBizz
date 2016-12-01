@@ -6,6 +6,6 @@ block content
         ul
         each drone in drones
             li
-                a(href='/drones'+drone._id)= drone.name
+                a(href='/drones/'+drone._id)= drone.name
                 p= drone.description
                 img(src= drone.image height='150' width ='150')
