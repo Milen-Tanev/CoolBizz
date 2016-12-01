@@ -17,6 +17,10 @@ module.exports = function (data) {
                         drone:drone
                     });
                 });
+        },
+        //Not good
+        getServices(req,res) {
+            res.render('drones/services')
         }
     }
 }
