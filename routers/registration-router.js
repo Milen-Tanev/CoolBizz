@@ -5,7 +5,7 @@ let router = express.Router();
 module.exports = function( app, data ) {
 let controller = require('../controllers/user-controller')(data);
 router
-    .get('/sign-in', controller.register);
+    .get('/sign-up', controller.register);
 
 app.use('/', router);
 }

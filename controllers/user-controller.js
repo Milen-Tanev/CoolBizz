@@ -2,7 +2,7 @@
 
 module.exports = function(data) {
     return {
-        signUp(req, res) {
+        signIn(req, res) {
             return res.render('users/sign-in', {
                 user: req.user
             });
