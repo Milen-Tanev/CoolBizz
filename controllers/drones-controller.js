@@ -8,6 +8,15 @@ module.exports = function (data) {
                     drones: drones
                 });
             });
+        },
+        getDroneDetails(req, res) {
+            let id = req.params.id;
+            data.getDrone(id)
+                .then(drone => {
+                    res.render('drones/drones-profile', {
+                        drone:drone
+                    });
+                });
         }
     }
 }

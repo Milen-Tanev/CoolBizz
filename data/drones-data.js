@@ -19,7 +19,7 @@ module.exports = function(models) {
         },
         getDrone(id) {
             return new Promise((resolve, reject) => {
-                Drone.findOne({ _id: id }, (err, drone) => {
+                Drone.Drone.findOne({ _id: id }, (err, drone) => {
                     if (err) {
                         return reject(err);
                     }
