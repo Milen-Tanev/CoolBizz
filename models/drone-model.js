@@ -22,10 +22,10 @@ const droneSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    serviceSupported: {
+    serviceSupported: [{
         type: String,
         enum: validServices
-    },
+    }],
     pricePerDay: {
         type: Number,
         required: true

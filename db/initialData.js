@@ -3,7 +3,10 @@ let Drone = require('../models/drone-model').Drone;
 const someDrone = new Drone({
     name: 'FlyFlyHigh',
     description: 'this is the masterpiece drone',
-    serviceSupported: 'Fire Response',
+    serviceSupported: [
+        'Fire Response',
+        'Supply Deliveries'
+    ],
     pricePerDay: 120,
     startRentDate: new Date(),
     endRentDate: new Date(),
@@ -47,7 +50,10 @@ const someDrone = new Drone({
 const someSecondDrone = new Drone({
     name: 'MyDrone XF 44',
     description: 'the tinies tiny drone',
-    serviceSupported: 'High-resolution photo & video',
+    serviceSupported: [
+        'High-resolution photo & video',
+        'Search and Rescue Operations'
+    ],
     pricePerDay: 100,
     startRentDate: new Date(),
     endRentDate: new Date(),
