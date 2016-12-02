@@ -1,0 +1,8 @@
+extends ../_layout
+
+block content
+    h1 Drones supporting #{service}
+    ul
+    each drone in drones
+        li
+            a(href= 'drones/'+drone._id)= drone.name

@@ -27,16 +27,6 @@ module.exports = function(models) {
                     return resolve(drone);
                 });
             });
-        },
-        getAllDronesWithService(service) {
-            return new Promise((resolve, reject) => {
-                Drone.find((err, drones) => {
-                    if (err) {
-                        return reject(err);
-                    }
-                    return resolve(drones).filter(drone => drone.serviceSupported === service);
-                });
-            });
         }
     };
 };
