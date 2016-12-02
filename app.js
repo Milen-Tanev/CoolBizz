@@ -6,6 +6,8 @@ let dataService = require('./data/data-loader')(dbFactory.getDb());
 
 const app = require('./config/app-config')(dataService);
 require('./routers')(app, dataService);
-app.listen(config.PORT, () => console.log(`The app is working on ${config.PORT}`));
+app.listen(config.PORT, () => console.log(`
+    The app is working on http://localhost:${config.PORT}
+    Stable version available at https://dronesinaction.herokuapp.com/\n`));
 
 // console.log(app);
