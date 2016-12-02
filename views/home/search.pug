@@ -1,0 +1,9 @@
+block content
+    if dronesFiltered
+        h2 Drones found:
+            each dr in dronesFiltered
+                li
+                    div ==> #{dr.name} <== assigned to -> #{dr.serviceSupported} <- job
+    else
+        h3 Opaaa, nqma dronovee. Ami zdrave da e..
+

@@ -2,23 +2,12 @@ const express = require('express');
 
 let router = express.Router();
 
-module.exports = function( app, data ) {
-let controller = require('../controllers/search-controller')(data);
-router
-    .get('/search', controller.search);
+module.exports = function(app, data) {
+    let controller = require('../controllers/search-controller')(data);
 
-app.use('/search', router);
-}
+    router
+        .get('/search', controller.search)
 
-// let app = require('../config/app-config').app,
-//     controller = require('../controllers/search-controller');
+    app.use('/', router);
 
-// let router = express.Router;
-
-// router
-//     .get('/drones', controller.searchDrones)
-//     .get('/services', controller.searchServices);
-
-// app.use('/search', router);
-
-// module.exports = router;
+};

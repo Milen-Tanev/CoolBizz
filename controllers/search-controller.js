@@ -3,8 +3,19 @@
 module.exports = function(data) {
     return {
         search(req, res) {
-            return res.render('home/home', {
-                user: req.user
+            let pattern = req.query.pattern;
+
+            data.getAllDrones().then(drones => {
+                let dronesFiltered = drones.filter(dr => dr.name === pattern)
+
+                if (dronesFiltered.length === 0) {
+                    dronesFiltered = null;
+                }
+                
+                res.render('home/search', {
+                    dronesFiltered
+
+                });
             });
         }
     };
