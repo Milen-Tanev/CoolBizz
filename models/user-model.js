@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 15
     },
+    /*
     firstName: {
         type: String,
         required: true,
@@ -43,6 +44,7 @@ const userSchema = new mongoose.Schema({
         },
         servicesCurrentlyUsing: []
     }
+    */
 });
 
 module.exports = {

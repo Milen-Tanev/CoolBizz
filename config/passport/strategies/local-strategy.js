@@ -8,10 +8,14 @@ module.exports = function (passport, data) {
                     if (user && (user.password === password)) {
                         done(null, user);
                     } else {
+                        console.log(user);
                         done(null, false);
                     }
                 })
-                .catch(error => done(error, false));
+                .catch(err => {
+                    console.log(err);
+                    done(err, false);
+                })
         });
 
     passport.use(authStrategy);
