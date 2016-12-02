@@ -4,47 +4,47 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        match: /^\w{5,15}$/
+        match: [/^\w{5,15}$/,'The username must have between 5 and 15 characters consisting of letters numbers and _']
     },
     password: {
         type: String,
         required: true,
-        minlength: 5,
-        maxlength: 15
+        minlength: [5,'The password is too short'],
+        maxlength: [15,'The password is too long']
     },
-    /*
-    firstName: {
-        type: String,
-        required: true,
-        match: /^[A-Z][a-z]{1,10}$/
-    },
-    lastName: {
-        type: String,
-        required: true,
-        match: /^[A-Z][a-z]{1,10}$/
-    },
-    email: {
-        type: String,
-        required: true,
-        match: /^\w{5,15}@[a-z]{3,10}\.[a-z]{2,5}$/
-    },
-    phoneNumber: {
-        type: String,
-        required: true,
-        match: /^\+\d{12}$/
-    },
-    verificationStatus: {
-        phone: Boolean,
-        email: Boolean
-    },
-    statistics: {
-        flights: {
-            total: Number,
-            lastFlightTime: Date
-        },
-        servicesCurrentlyUsing: []
-    }
-    */
+
+    // firstName: {
+    //     type: String,
+    //     required: true,
+    //     match: [/^[A-Z][a-z]{1,10}$/,'First name must start with a campital letter']
+    // },
+    // lastName: {
+    //     type: String,
+    //     required: true,
+    //     match: [/^[A-Z][a-z]{1,10}$/,'Last name must start with a capital letter']
+    // },
+    // email: {
+    //     type: String,
+    //     required: true,
+    //     match: [/^\w{5,15}@[a-z]{3,10}\.[a-z]{2,5}$/,'Invalid email']
+    // },
+    // phoneNumber: {
+    //     type: String,
+    //     required: true,
+    //     match: [/^\+\d{12}$/,'Phone numbwer must start with +359']
+    // },
+    // verificationStatus: {
+    //     phone: Boolean,
+    //     email: Boolean
+    // },
+    // statistics: {
+    //     flights: {
+    //         total: Number,
+    //         lastFlightTime: Date
+    //     },
+    //     servicesCurrentlyUsing: []
+    // }
+
 });
 
 module.exports = {
