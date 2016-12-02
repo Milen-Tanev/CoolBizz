@@ -1,18 +1,20 @@
-module.exports = function(models) {
+module.exports = function (models) {
     let {
-        Service
-    } = models;
+        Drone
+    } = models.Drone;
 
     return {
         getAllServices() {
             return new Promise((resolve, reject) => {
-                Service.find((err, services) => {
-                    if (err) {
-                        return reject(err);
-                    }
-
-                    return resolve(services);
-                });
+                Drone.distinct(
+                    'serviceSupported',
+                    (err, services) => {
+                        if (err) {
+                            return reject(err);
+                        }
+                        console.log(services);
+                        return resolve(services);
+                    });
             });
         }
     };

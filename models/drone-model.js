@@ -3,15 +3,7 @@ const mongoose = require('mongoose');
 
 
 // db.Services.find({})
-let validServices = [
-    'High-resolution photo & video',
-    'Thermal inspection via sensors',
-    'Supply Deliveries',
-    'Fire Response',
-    'Search and Rescue Operations',
-    'Chemical, Biological, Radiological, Nuclear, or Explosive(CBRNE) Event',
-    'Logistics Support'
-];
+let validServices = require('../db/service-provider');
 
 const droneSchema = mongoose.Schema({
     name: {
