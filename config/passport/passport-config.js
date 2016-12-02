@@ -3,7 +3,7 @@
 const passport = require('passport');
 
 module.exports = function(app, data){
-    localStrategy = require('./strategies');
+    localStrategy = require('./strategies')(passport, data);
 
     app.use(passport.initialize());
     app.use(passport.session());

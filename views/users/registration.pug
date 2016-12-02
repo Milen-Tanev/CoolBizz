@@ -3,24 +3,14 @@ extends ../_layout
 block content
 
     .container
-        h1.well Registration Form
-        .col-lg-12
-        .row
-        form
-        .col-sm-12
-        .row
-        .col-sm-6.form-group
-            label First Name
-            input.form-control(type="text" placeholder="Enter First Name Here..")
-        .col-sm-6
-            label Last Name
-            input.form-control(type="text" placeholder="Enter Last Name Here..")
-        .form-group
-        .row
-        .form-group
-            label Phone Number
-            input.form-control(type="text" placeholder="Enter Phone Number Here..")
-        .form-group
-            label Email Address
-            input.form-control(type="text" placeholder="Enter Email Address Here..")
-        button.btn.btn-lg.btn-info(type="button") Submit
+        .wrapper
+        form.form-signin(action="/sign-up" method="post" name="Register_Form")
+            h3.form-signin-heading Registration Form
+                br.colorgraph
+                input.form-control.sign-in(type="text" name="username" placeholder="Username" required="" autofocus="")
+                input.form-control.sign-in(type="text" name="firstName" placeholder="First Name" required="")
+                input.form-control.sign-in(type="text" name="lastName" placeholder="Last Name" required="" autofocus="")
+                input.form-control.sign-in(type="text" name="phoneNumber" placeholder="Phone Number" required="")
+                input.form-control.sign-in(type="text" name="email" placeholder="Email Address" required="" autofocus="")
+                input.form-control.sign-in(type="password" name="password" placeholder="Password" required="")
+            button.btn.btn-lg.btn-primary.btn-block(type="submit" name="Submit" value="Login") Register

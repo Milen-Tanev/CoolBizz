@@ -15,8 +15,11 @@ let controller = require('../controllers/user-controller')(data);
 //     .post("/logOut", controller.logOut);
 
 router
-    .get('/sign-in', controller.signIn)
-    //.get('/sign-out', controller.signOut)
+    .get('/sign-in', controller.getSignInForm)
+    .post('/sign-in',passport.authenticate('local', { failureRedirect: '/sign-up' }),
+            (req, res) => res.redirect("/home"))
+    .post("/sign-out", controller.signOut);
+
 
 app.use('/', router);
 }

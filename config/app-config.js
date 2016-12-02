@@ -8,10 +8,10 @@ const express = require('express'),
 module.exports = function (data) {
     const app = express();
 
-    //app.use(bodyParser.json);
-    //app.use(bodyParser.urlencoded({ extended: true }));
-    //app.use(cookieParser());
-    //app.use(session({ secret: 'idiocracy' }));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(cookieParser());
+    app.use(session({ secret: 'idiocracy' }));
 
     app.set('view engine', 'pug');
 
