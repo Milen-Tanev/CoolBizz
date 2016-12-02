@@ -1,0 +1,8 @@
+extends ../_layout
+
+block content
+    h1 Supported services:
+    ul
+    each service in services
+        li
+            a(href= 'services/'+service.name)= service.name
