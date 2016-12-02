@@ -5,11 +5,8 @@ module.exports = function(data) {
         name: 'authentication',
         register(req, res) {
             let { username, password, firstName, lastName, email, phoneNumber } = req.body;
-            //console.log(req.body);
-            //console.log(data);
-            data.createUser({username, password, firstName,lastName, email, phoneNumber})
+            data.createUser(username, password, firstName,lastName, email, phoneNumber)
                 .then(user => {
-                    console.log(user);
                     return res.redirect('/sign-in');
                 });
         },

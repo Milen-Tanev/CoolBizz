@@ -4,7 +4,6 @@ const passport = require('passport');
 
 let router = express.Router();
 
-
 module.exports = function(app, data) {
     let controller = require('../controllers/user-controller')(data);
 
@@ -19,6 +18,7 @@ module.exports = function(app, data) {
         .post('/sign-in', passport.authenticate('local', { failureRedirect: '/sign-up' }),
             (req, res) => res.redirect("/home"))
         .post("/sign-out", controller.signOut);
+
 
 
     app.use('/', router);
