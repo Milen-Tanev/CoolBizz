@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
+        index: { unique: true },
         match: [/^\w{5,15}$/,'The username must have between 5 and 15 characters consisting of letters numbers and _']
     },
     password: {
@@ -12,7 +13,6 @@ const userSchema = new mongoose.Schema({
         minlength: [5,'The password is too short'],
         maxlength: [15,'The password is too long']
     },
-
     firstName: {
         type: String,
         required: true,
@@ -32,6 +32,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         match: [/^\+\d{12}$/,'Phone numbwer must start with +359']
+    },
+    role: {
+        type: String,
+        required: true,
+        default: 'user'
+    },
+    isDeleted: {
+        type: Boolean,
+        required: true,
+        default: false
     },
     verificationStatus: {
         phone: Boolean,
