@@ -4,10 +4,11 @@ block content
     h1 LIST OF DRONES
     div
         ul
-        if user.role === "admin"
-            form.navbar-form.pull-right(action="/create-drone" method="get")
-                .input-group-btn
-                    button.btn.btn-lg.btn-primary(type="submit" name="Submit" value="Create new drone") Create new drone
+        if user
+            if user.role === "admin"
+                form.navbar-form.pull-right(action="/create-drone" method="get")
+                    .input-group-btn
+                        button.btn.btn-lg.btn-primary(type="submit" name="Submit" value="Create new drone") Create new drone
         each drone in drones
             li
                 a(href='/drones/'+drone._id)= drone.name

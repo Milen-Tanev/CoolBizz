@@ -3,6 +3,11 @@ extends ../_layout
 block content
     h1 Supported services:
     ul
+    if user
+        if user.role === "admin"
+            form.navbar-form.pull-right(action="/create-service" method="get")
+                .input-group-btn
+                    button.btn.btn-lg.btn-primary(type="submit" name="Submit" value="Create new drone") Create new drone
         each service in services
             li
                 h3
