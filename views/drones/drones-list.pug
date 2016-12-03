@@ -1,7 +1,6 @@
 extends ../_layout
 
 block content
-
     h1 LIST OF DRONES
     div
         ul
@@ -10,3 +9,37 @@ block content
                 a(href='/drones/'+drone._id)= drone.name
                 p= drone.description
                 img.img-rounded(src= drone.img height='150' width ='150')
+
+    div#map
+    //- script(type='text/javascript').
+
+    //-     function initMap(){
+
+    //-         var uluru = { lat: -25.363, lng: 131.044 };
+    //-         var map = new google.maps.Map(document.getElementById('map'), {
+    //-             zoom: 4,
+    //-             center: uluru,
+    //-             mapTypeId: google.maps.MapTypeId.ROADMAP
+    //-         });
+
+    //-         var infowindow = new google.maps.InfoWindow();
+    //-         var marker, i;
+    //-         var dronesList = [['EU', -33.890542, 151.274856, 4],['Coogee Beach', -23.923036, 131.259052, 5]]
+
+    //-         for (i = 0; i < dronesList.length; i++) {
+    //-             marker = new google.maps.Marker({
+    //-                 position: new google.maps.LatLng(dronesList[i][1], dronesList[i][2]),
+    //-                 map: map
+    //-             });
+
+    //-             google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    //-                 return function() {
+    //-                 infowindow.setContent(dronesList[i][0]);
+    //-                 infowindow.open(map, marker);
+    //-                 }
+    //-             })(marker, i));
+    //-             }
+    //-     }
+    //- script(type ="text/javascript" src='https://maps.googleapis.com/maps/api/js?key=KEY&callback=initMap' async defer)
+
+
