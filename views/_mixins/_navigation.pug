@@ -23,7 +23,7 @@ mixin mixin-navigation
                                 span.caret
                             ul.dropdown-menu
                                 li
-                                    a(href='users/'+user._id)
+                                    a(href='/'+user._id)
                                         | View profile
                                 li
                                     form(action="/sign-out" method="post")

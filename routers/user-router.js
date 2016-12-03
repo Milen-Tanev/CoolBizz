@@ -6,7 +6,8 @@ module.exports = function(app, data) {
     let controller = require('../controllers/user-controller')(data);
 
     router
-        .get('/users/:id', controller.getUserDetails);
+        .get('/:id', controller.getUserDetails)
+        .get('/modify-profile', controller.getModifyProfileForm);
 
     app.use('/', router);
 };

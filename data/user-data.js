@@ -20,6 +20,34 @@ module.exports = function(models) {
 
             });
         },
+        modifyUser(user, password, email, phoneNumber) {
+            return new Promise((resolve, reject) => {
+                if (password) {
+                    user.update({ password }, err => {
+                        if (err) {
+                            return reject(err);
+                        }
+                        return resolve(user);
+                    });
+                }
+                if (email) {
+                    user.update({ email }, err => {
+                        if (err) {
+                            return reject(err);
+                        }
+                        return resolve(user);
+                    });
+                }
+                if (phoneNumber) {
+                    user.update({ phoneNumber }, err => {
+                        if (err) {
+                            return reject(err);
+                        }
+                        return resolve(user);
+                    });
+                }
+            });
+        },
         findByUsernameAndPassword(username, password) {
             return new Promise((resolve, reject) => {
                 User.findOne({ username, password }, (err, user) => {
