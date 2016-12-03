@@ -5,11 +5,9 @@ module.exports = function(data) {
         name: 'authentication',
         register(req, res) {
             let { username, password, firstName, lastName, email, phoneNumber } = req.body;
-            data.createUser(username, password, firstName,lastName, email, phoneNumber)
-                .then(user => {
-                    return res.redirect('/sign-in',{
-                        user: req.user
-                    });
+            data.createUser(username, password, firstName, lastName, email, phoneNumber)
+                .then(() => {
+                    return res.redirect('/sign-in');
                 });
         },
         signOut(req, res) {
@@ -23,6 +21,11 @@ module.exports = function(data) {
         },
         getRegistrationForm(req, res) {
             return res.render('users/registration', {
+                user: req.user
+            });
+        },
+        getUserDetails(req, res) {
+            res.render('users/user-profile', {
                 user: req.user
             });
         }
