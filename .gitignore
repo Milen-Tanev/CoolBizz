@@ -43,3 +43,4 @@ typings
 # Bower
 public/bower_components
 .env
+/config/local_env.yml
