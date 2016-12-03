@@ -3,7 +3,7 @@ let environment = process.env.NODE_ENV;
 let connString = 'mongodb://localhost:27017/drones';
 
 if (environment === 'production') {
-    connString = 'mongodb://mongoDB:mongoDBpass@ds111748.mlab.com:11748/drone-fleet';
+    connString = 'mongodb://process.env.mongoDB:process.env.mongoDBpass@ds111748.mlab.com:11748/drone-fleet';
 }
 module.exports = {
     getDb() {
