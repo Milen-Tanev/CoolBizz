@@ -1,54 +1,64 @@
 #custom-bootstrap-menu.navbar-default .navbar-brand {
-    color: rgba(231, 231, 231, 1);
+    color: rgba(62, 71, 86, 1);
 }
+
 #custom-bootstrap-menu.navbar-default {
     font-size: 14px;
     background-color: rgba(41, 37, 37, 1);
     border-width: 1px;
-    border-radius: 0px;
+    border-radius: 10px;
+    background: transparent
 }
+
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-    color:  rgba(231, 231, 231, 1);
+    color: rgba(62, 71, 86, 1);
     background-color: rgba(48, 42, 42, 1);
     background: -webkit-linear-gradient(top, rgba(248, 248, 248, 0) 0%, rgba(48, 42, 42, 1) 100%);
     background: linear-gradient(to bottom, rgba(248, 248, 248, 0) 0%, rgba(48, 42, 42, 1) 100%);
+    background: transparent
 }
+
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-brand:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-    color: rgba(255, 255, 255, 1);
+    color: rgb(86, 43, 160);
     background-color: rgba(248, 248, 248, 0);
 }
+
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
     color: rgba(212, 212, 212, 1);
     background-color: rgba(231, 231, 231, 1);
 }
+
 #custom-bootstrap-menu.navbar-default .navbar-toggle {
-    border-color: #ddd;
+    border-color: rgb(107, 127, 160);
 }
+
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
     background-color: #ddd;
 }
+
 #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
     background-color: #888;
 }
+
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
     background-color: #292525;
 }
 
 .dropdown-menu {
-    background-color: rgba(48, 42, 42, 1);
+    background-color: rgb(136, 144, 155);
 }
 
-.dropdown-menu>li>a{
-        color: rgba(212, 212, 212, 1);
+siz .dropdown-menu>li>a {
+    color: rgba(212, 212, 212, 1);
 }
 
-.right{
+.right {
     float: right;
 }
 
@@ -58,86 +68,175 @@ p.text-center {
     left: 50px;
 }
 
+
 /* video css */
 
 .fullscreen-bg {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -100;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
 }
 
 .fullscreen-bg__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 @media (min-aspect-ratio: 16/9) {
-  .fullscreen-bg__video {
-    height: 300%;
-    top: -100%;
-  }
+    .fullscreen-bg__video {
+        height: 300%;
+        top: -100%;
+    }
 }
 
 @media (max-aspect-ratio: 16/9) {
-  .fullscreen-bg__video {
-    width: 300%;
-    left: -100%;
-  }
+    .fullscreen-bg__video {
+        width: 300%;
+        left: -100%;
+    }
 }
 
 @media (max-width: 767px) {
-  .fullscreen-bg {
-    background: url('../img/videoframe.jpg') center center / cover no-repeat;
-  }
-
-  .fullscreen-bg__video {
-    display: none;
-  }
+    .fullscreen-bg {
+        background: url('../img/videoframe.jpg') center center / cover no-repeat;
+    }
+    .fullscreen-bg__video {
+        display: none;
+    }
 }
+
 
 /* sign-in form css */
 
 .wrapper {
-	margin-top: 80px;
-	margin-bottom: 20px;
+    margin-top: 80px;
+    margin-bottom: 20px;
 }
 
 .form-signin {
-  max-width: 420px;
-  padding: 30px 38px 66px;
-  margin: 0 auto;
-  background-color: #eee;
-  border: 3px dotted rgba(0,0,0,0.1);
-  }
+    max-width: 420px;
+    padding: 30px 38px 66px;
+    margin: 0 auto;
+    background-color: #eee;
+    border: 3px dotted rgba(0, 0, 0, 0.1);
+}
 
 .form-signin-heading {
-  text-align:center;
-  margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .sign-in {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
 }
 
 input[type="text"] {
-  margin-bottom: 0px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 input[type="password"] {
-  margin-bottom: 20px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
+.jumbotron {
+    background: rgb(255, 250, 255);
+    /* This is for ie8 and below */
+    background: rgba(255, 250, 255, 0.5);
+    padding: 0.5em 0.6em 0.5em 0.6em;
+    margin-bottom: 5px;
+}
+
+.navbar-default {
+    border-color: rgb(136, 144, 155)
+}
+
+input.form-control {
+    color: rgba(62, 71, 86, 1);
+    background: transparent;
+    border-color: rgb(136, 144, 155);
+    border-radius: 5px;
+}
+
+.btn.btn-default {
+    background-color: blue;
+    background: transparent;
+    border-color: rgb(136, 144, 155);
+}
+
+tbody img {
+    background: transparent;
+}
+
+.text-center {
+    color: rgba(62, 71, 86, 1);
+}
+
+h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+th.text-center {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr,
+    caption {
+        display: block;
+    }
+    /* Hide table headers */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        display: none
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    /* Label the data */
+    td:nth-of-type(1):before {
+        content: "Business section ";
+    }
+    td:nth-of-type(2):before {
+        content: "Geek";
+    }
+}

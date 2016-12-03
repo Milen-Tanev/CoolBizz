@@ -4,22 +4,25 @@ include _mixins/_navigation
 html(lang="en")
 head
     meta(charset="UTF-8")
-    title The Drones Universe
-    block site-title
-    link(rel="stylesheet", href="/static/bower_components/bootstrap/dist/css/bootstrap.css")
-    link(rel="stylesheet", href="/static/css/main.css")
-    block styles
+    div.jumbotron
+        title The Drones Platform
+        block site-title
+        link(rel="stylesheet", href="/static/bower_components/bootstrap/dist/css/bootstrap.css")
+        link(rel="stylesheet", href="/static/css/main.css")
+        block styles
 
-    script(src="/static/bower_components/jquery/dist/jquery.js")
-    script(src="/static/bower_components/bootstrap/dist/js/bootstrap.js")
-    script(src="/static/js/main.js")
-    block headScripts
+        script(src="/static/bower_components/jquery/dist/jquery.js")
+        script(src="/static/bower_components/bootstrap/dist/js/bootstrap.js")
+        script(src="/static/js/main.js")
+        block headScripts
 
-    body
-        header
-            +mixin-navigation
-        main
-            content.container.text-center
-                block content
-        footer
-            p.text-center The Drones Universe Team Infinite Recursion
+body
+    header
+        +mixin-navigation
+    main
+        content.container.text-center
+            block content
+
+footer
+    section#footer
+        p.text-center.text-muted.credit Infinite Recursion Soft Dev Studion

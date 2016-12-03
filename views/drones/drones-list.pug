@@ -1,6 +1,7 @@
 extends ../_layout
 
 block content
+
     h1 LIST OF DRONES
     div
         ul
@@ -8,4 +9,4 @@ block content
             li
                 a(href='/drones/'+drone._id)= drone.name
                 p= drone.description
-                img(src= drone.img height='150' width ='150')
+                img.img-rounded(src= drone.img height='150' width ='150')
