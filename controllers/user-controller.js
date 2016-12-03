@@ -23,6 +23,11 @@ module.exports = function(data) {
             return res.render('users/registration', {
                 user: req.user
             });
+        },
+        getUserDetails(req, res) {
+            res.render('users/user-profile', {
+                user: req.user
+            });
         }
     };
 };

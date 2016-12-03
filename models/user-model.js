@@ -13,38 +13,37 @@ const userSchema = new mongoose.Schema({
         maxlength: [15,'The password is too long']
     },
 
-    // firstName: {
-    //     type: String,
-    //     required: true,
-    //     match: [/^[A-Z][a-z]{1,10}$/,'First name must start with a campital letter']
-    // },
-    // lastName: {
-    //     type: String,
-    //     required: true,
-    //     match: [/^[A-Z][a-z]{1,10}$/,'Last name must start with a capital letter']
-    // },
-    // email: {
-    //     type: String,
-    //     required: true,
-    //     match: [/^\w{5,15}@[a-z]{3,10}\.[a-z]{2,5}$/,'Invalid email']
-    // },
-    // phoneNumber: {
-    //     type: String,
-    //     required: true,
-    //     match: [/^\+\d{12}$/,'Phone numbwer must start with +359']
-    // },
-    // verificationStatus: {
-    //     phone: Boolean,
-    //     email: Boolean
-    // },
-    // statistics: {
-    //     flights: {
-    //         total: Number,
-    //         lastFlightTime: Date
-    //     },
-    //     servicesCurrentlyUsing: []
-    // }
-
+    firstName: {
+        type: String,
+        required: true,
+        match: [/^[A-Z][a-z]{1,10}$/,'First name must start with a campital letter']
+    },
+    lastName: {
+        type: String,
+        required: true,
+        match: [/^[A-Z][a-z]{1,10}$/,'Last name must start with a capital letter']
+    },
+    email: {
+        type: String,
+        required: true,
+        match: [/^\w{5,15}@[a-z]{3,10}\.[a-z]{2,5}$/,'Invalid email']
+    },
+    phoneNumber: {
+        type: String,
+        required: true,
+        match: [/^\+\d{12}$/,'Phone numbwer must start with +359']
+    },
+    verificationStatus: {
+        phone: Boolean,
+        email: Boolean
+    },
+    statistics: {
+        flights: {
+            total: Number,
+            lastFlightTime: Date
+        },
+        servicesCurrentlyUsing: []
+    }
 });
 
 module.exports = {

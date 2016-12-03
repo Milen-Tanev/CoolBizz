@@ -15,17 +15,17 @@ module.exports = function (data) {
             data.getDrone(id)
                 .then(drone => {
                     res.render('drones/drones-profile', {
-                        drone:drone,
+                        drone: drone,
                         user: req.user
                     });
                 });
         },
-        //Not good
-        getServices(req,res) {
-            res.render('drones/services',{
-                        drone:drone,
+        // Not good
+        getServices(req, res) {
+            res.render('drones/services', {
+                        drone: drone,
                         user: req.user
             });
         }
-    }
-}
+    };
+};
