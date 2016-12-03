@@ -1,11 +1,19 @@
-const LocalStrategy = require('passport-local').Strategy;
+/*globals require module */
+
+const LocalStrategy = require('passport-local').Strategy,
+encrypt = require('../../encrypt');
 
 module.exports = function (passport, data) {
+
+    function authenticate(user, password) {
+        return encrypt.hashPassword(user.salt, password) === user.password;
+    }
+
     const authStrategy = new LocalStrategy(
         function(username, password, done) {
-            data.findByUsernameAndPassword(username, password)
+            data.findByUsername(username)
                 .then(user => {
-                    if (user && (user.password === password)) {
+                    if (user && authenticate(user, password)) {
                         done(null, user);
                     } else {
                         done(null, false);

@@ -1,12 +1,19 @@
+/* globals require module */
+const encrypt = require('../config/encrypt');
+
 module.exports = function(models) {
     let {
         User
     } = models.User;
 
     return {
-
         createUser(username, password, firstName, lastName, email, phoneNumber) {
-            let user = new User({ username, password, firstName, lastName, email, phoneNumber });
+
+            var salt = encrypt.generateSalt();
+
+            password = encrypt.hashPassword(salt, password );
+
+            let user = new User({ username, password, salt, firstName, lastName, email, phoneNumber });
 
             return new Promise((resolve, reject) => {
                 user.save(err => {
@@ -14,10 +21,9 @@ module.exports = function(models) {
                         console.log(err);
                         return reject(err);
                     }
-                    // console.log(user);
+                    //console.log(user);
                     return resolve(user);
                 });
-
             });
         },
         modifyUser(user, password, email, phoneNumber) {
@@ -48,9 +54,9 @@ module.exports = function(models) {
                 }
             });
         },
-        findByUsernameAndPassword(username, password) {
+        findByUsername(username) {
             return new Promise((resolve, reject) => {
-                User.findOne({ username, password }, (err, user) => {
+                User.findOne({ username }, (err, user) => {
 
                     if (err) {
                         return reject(err);
