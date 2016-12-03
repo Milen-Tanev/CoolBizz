@@ -7,7 +7,9 @@ module.exports = function(data) {
             let { username, password, firstName, lastName, email, phoneNumber } = req.body;
             data.createUser(username, password, firstName,lastName, email, phoneNumber)
                 .then(user => {
-                    return res.redirect('/sign-in');
+                    return res.redirect('/sign-in',{
+                        user: req.user
+                    });
                 });
         },
         signOut(req, res) {

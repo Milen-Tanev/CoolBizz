@@ -3,7 +3,6 @@
 const passport = require('passport');
 
 module.exports = function(app, data){
-    localStrategy = require('./strategies')(passport, data);
 
     app.use(passport.initialize());
     app.use(passport.session());
@@ -18,11 +17,14 @@ module.exports = function(app, data){
         data.findUserById(id)
             .then(user => {
                 if (user) {
-                    return done(null, false);
+                    done(null, user);
+                } else {
+                    done(null, false);
                 }
-
-                return done(null, false);
             })
             .catch(error => done(error, false));
     });
+
+
+    require('./strategies')(passport, data);
 }

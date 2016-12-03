@@ -11,10 +11,10 @@ module.exports = function(data) {
                 if (dronesFiltered.length === 0) {
                     dronesFiltered = null;
                 }
-                
-                res.render('home/search', {
-                    dronesFiltered
 
+                res.render('home/search', {
+                    dronesFiltered,
+                    user: req.user
                 });
             });
         }
