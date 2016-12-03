@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const historySchema = require('./history-model').historySchema;
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -38,6 +39,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         default: 'user'
     },
+    historyOfPurchases:[historySchema],
     isDeleted: {
         type: Boolean,
         required: true,
