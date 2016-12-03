@@ -12,7 +12,7 @@ module.exports = function(data) {
         },
         signOut(req, res) {
             req.logout();
-                res.redirect('/');
+            res.redirect('/');
         },
         getSignInForm(req, res) {
             return res.render('users/sign-in', {
@@ -25,9 +25,20 @@ module.exports = function(data) {
             });
         },
         getUserDetails(req, res) {
-            res.render('users/user-profile', {
+            return res.render('users/user-profile', {
+                user: req.user
+            });
+        },
+        getModifyProfileForm(res, req) {
+            return res.render('users/modify-profile', {
                 user: req.user
             });
         }
+        // modifyProfile(req, res) {
+        //     data.modifyUser(req.user, req.password, req.email, req.phoneNumber)
+        //         .then(() => {
+        //             return res.render('/modify-profile/:id');
+        //         });
+        // }
     };
 };
