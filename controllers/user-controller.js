@@ -24,21 +24,21 @@ module.exports = function(data) {
                 user: req.user
             });
         },
-        getUserDetails(req, res) {
-            return res.render('users/user-profile', {
-                user: req.user
-            });
-        },
         getModifyProfileForm(res, req) {
             return res.render('users/modify-profile', {
                 user: req.user
             });
+        },
+        modifyProfile(req, res) {
+            data.modifyUser(req.user, req.password, req.email, req.phoneNumber)
+                .then(() => {
+                    return res.render('/modify-profile/:id');
+                });
+        },
+        getUserDetails(req, res) {
+            return res.render('users/user-profile', {
+                user: req.user
+            });
         }
-        // modifyProfile(req, res) {
-        //     data.modifyUser(req.user, req.password, req.email, req.phoneNumber)
-        //         .then(() => {
-        //             return res.render('/modify-profile/:id');
-        //         });
-        // }
     };
 };
