@@ -8,8 +8,11 @@ module.exports = function (data) {
             });
         },
         information(req, res) {
-            return res.render('home/about-us', {
-                Members: [{
+            return res.render('home/about-us',
+            {
+                user: req.user,
+                Members: [
+                {
                     name: 'Velin',
                     github: 'https://github.com/VelinYordanov'
                 },

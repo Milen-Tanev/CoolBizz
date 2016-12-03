@@ -7,7 +7,7 @@ mixin mixin-navigation
                     span.icon-bar
                     span.icon-bar
                     span.icon-bar
-                a.navbar-brand(href="/") Home
+                a.navbar-brand(href="/home") Home
             .navbar-menubuilder.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-left
                     li
@@ -27,7 +27,7 @@ mixin mixin-navigation
                                         | View profile
                                 li
                                     form(action="/sign-out" method="post")
-                                        button
+                                        button.signOut
                                             | Sign out
                     else
                         li.dropdown

@@ -5,7 +5,8 @@ module.exports = function (data) {
         listDrones(req, res) {
             data.getAllDrones().then(drones => {
                 res.render('drones/drones-list', {
-                    drones: drones
+                    drones: drones,
+                    user: req.user
                 });
             });
         },
@@ -14,13 +15,17 @@ module.exports = function (data) {
             data.getDrone(id)
                 .then(drone => {
                     res.render('drones/drones-profile', {
-                        drone:drone
+                        drone:drone,
+                        user: req.user
                     });
                 });
         },
         //Not good
         getServices(req,res) {
-            res.render('drones/services')
+            res.render('drones/services',{
+                        drone:drone,
+                        user: req.user
+            });
         }
     }
 }

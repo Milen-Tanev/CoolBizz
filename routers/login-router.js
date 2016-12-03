@@ -16,8 +16,8 @@ module.exports = function(app, data) {
     router
         .get('/sign-in', controller.getSignInForm)
         .post('/sign-in', passport.authenticate('local', { failureRedirect: '/sign-up' }),
-            (req, res) => res.redirect("/home"))
-        .post("/sign-out", controller.signOut);
+            (req, res) => res.redirect('/'))
+        .post('/sign-out', controller.signOut);
 
 
 
