@@ -3,9 +3,6 @@ const fs = require('fs'),
 
 
 module.exports = function(db) {
-
-
-
     let Drone = require('../models/drone-model');
     let Service = require('../models/service-model');
     let User = require('../models/user-model');

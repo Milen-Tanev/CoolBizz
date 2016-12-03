@@ -6,7 +6,7 @@ module.exports = function(data) {
         register(req, res) {
             let { username, password, firstName, lastName, email, phoneNumber } = req.body;
             data.createUser(username, password, firstName, lastName, email, phoneNumber)
-                .then(user => {
+                .then(() => {
                     return res.redirect('/sign-in');
                 });
         },

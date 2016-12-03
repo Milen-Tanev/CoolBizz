@@ -3,7 +3,7 @@ module.exports = function(data) {
         getAllServices(req, res) {
             data.getAllServices().then(services => {
                 res.render('drones/services.pug', {
-                    services: services,
+                    services,
                     user: req.user
                 });
             });
@@ -13,7 +13,7 @@ module.exports = function(data) {
             data.getAllDronesWithService(name).then(drones => {
                 res.render('drones/drones-with-service.pug', {
                     service: drones[0].serviceSupported,
-                    drones: drones,
+                    drones,
                     user: req.user
                 });
             });
