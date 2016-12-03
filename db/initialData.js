@@ -44,7 +44,8 @@ const someDrone = new Drone({
         distanceToEmitter: 0.5,
         canFlyWithTeam: true,
         canLeadTeam: true
-    }
+    },
+    img: 'https://www.wired.com/images_blogs/dangerroom/2012/03/x56a-660x338.jpg'
 });
 
 const someSecondDrone = new Drone({
@@ -76,7 +77,8 @@ const someSecondDrone = new Drone({
     fireServiceData: {
         typeOfExtinguisher: 'Powder',
         quantity: 1
-    }
+    },
+    img: 'http://www.examinechina.com/blog/wp-content/uploads/2014/05/drone.jpg'
 });
 
 const someThirdDrone = new Drone({
@@ -106,10 +108,167 @@ const someThirdDrone = new Drone({
         distanceToEmitter: 0.5,
         canFlyWithTeam: true,
         canLeadTeam: true
-    }
+    },
+    img: 'http://media.cmgdigital.com/shared/lt/lt_cache/thumbnail/960/img/photos/2013/12/05/d4/72/Amazone-Drone-Delivery.JPEG.jpg'
 });
 
-let dronesArr = [someDrone, someSecondDrone, someThirdDrone];
+const someFourthDrone = new Drone({
+    name: 'UniqueCargo',
+    description: 'heavyLOAD',
+    serviceSupported: 'Logistics Support',
+    pricePerDay: 220,
+    startRentDate: new Date(),
+    endRentDate: new Date(),
+    realtimeNavdata: true,
+    altitudeMax: 800,
+    altitudeMin: 20,
+    manufacturer: 'DinddddwongLTD',
+    latitude: 33.2298,
+    longitude: 45.1258,
+    maxBitrate: 20,
+    videoEnabled: true,
+    videoCodec: 'SupersssCodec',
+    videoOnUsb: true,
+    VideoSlic: true,
+    wifiMode: 'permDr',
+    wifiRate: 'strongV',
+    deliveryServiceData: {
+        carryLoad: 12
+    },
+    logisticsSupportService: {
+        distanceToEmitter: 0.5,
+        canFlyWithTeam: true,
+        canLeadTeam: true
+    },
+    img: 'http://mhlnews.com/site-files/mhlnews.com/files/imagecache/galleryformatter_slide_penton/gallery_images/Drone-Cargo-1.jpg?1442500461'
+});
+
+const someFifthDrone = new Drone({
+    name: 'everywhereMil23sd4',
+    description: 'CBREspecial',
+    serviceSupported: 'Chemical, Biological, Radiological, Nuclear, or Explosive(CBRNE) Event',
+    pricePerDay: 220,
+    startRentDate: new Date(),
+    endRentDate: new Date(),
+    realtimeNavdata: true,
+    altitudeMax: 800,
+    altitudeMin: 20,
+    manufacturer: 'MilitarySecretSec',
+    latitude: 33.2298,
+    longitude: 45.1258,
+    maxBitrate: 20,
+    videoEnabled: true,
+    videoCodec: 'SupersssCodec',
+    videoOnUsb: true,
+    VideoSlic: true,
+    wifiMode: 'permDr',
+    wifiRate: 'strongV',
+    deliveryServiceData: {
+        carryLoad: 12
+    },
+    logisticsSupportService: {
+        distanceToEmitter: 0.5,
+        canFlyWithTeam: true,
+        canLeadTeam: true
+    },
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-44sQZz6TpI3Y0JRKG83YKeOya6goiAOuIez1MAGx0WKst97Rg'
+});
+
+const someSixththDrone = new Drone({
+    name: 'ther34Xs',
+    description: 'Therone',
+    serviceSupported: 'Thermal inspection via sensors',
+    pricePerDay: 220,
+    startRentDate: new Date(),
+    endRentDate: new Date(),
+    realtimeNavdata: true,
+    altitudeMax: 800,
+    altitudeMin: 20,
+    manufacturer: 'sensorCo3002',
+    latitude: 33.2298,
+    longitude: 45.1258,
+    maxBitrate: 20,
+    videoEnabled: true,
+    videoCodec: 'SupersssCodec',
+    videoOnUsb: true,
+    VideoSlic: true,
+    wifiMode: 'permDr',
+    wifiRate: 'strongV',
+    deliveryServiceData: {
+        carryLoad: 12
+    },
+    logisticsSupportService: {
+        distanceToEmitter: 0.5,
+        canFlyWithTeam: true,
+        canLeadTeam: true
+    },
+    img: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSKp3lvvc0GH-pp8jJuhR2AMTJwkDMpRXPzBIM-wPz31GfktImf'
+});
+
+const someSeventhDrone = new Drone({
+    name: 'Sprinkler',
+    description: 'FireArm',
+    serviceSupported: 'Fire Response',
+    pricePerDay: 220,
+    startRentDate: new Date(),
+    endRentDate: new Date(),
+    realtimeNavdata: true,
+    altitudeMax: 800,
+    altitudeMin: 20,
+    manufacturer: 'sensorCo3002',
+    latitude: 33.2298,
+    longitude: 45.1258,
+    maxBitrate: 20,
+    videoEnabled: true,
+    videoCodec: 'SupersssCodec',
+    videoOnUsb: true,
+    VideoSlic: true,
+    wifiMode: 'permDr',
+    wifiRate: 'strongV',
+    deliveryServiceData: {
+        carryLoad: 12
+    },
+    logisticsSupportService: {
+        distanceToEmitter: 0.5,
+        canFlyWithTeam: true,
+        canLeadTeam: true
+    },
+    img: 'http://defense-update.com/images/locaas-2.jpg'
+});
+
+const someEightDrone = new Drone({
+    name: 'RescuerEverGreen',
+    description: 'critcally fast rescue ops',
+    serviceSupported: 'Search and Rescue Operations',
+    pricePerDay: 220,
+    startRentDate: new Date(),
+    endRentDate: new Date(),
+    realtimeNavdata: true,
+    altitudeMax: 800,
+    altitudeMin: 20,
+    manufacturer: 'sensorCo3002',
+    latitude: 33.2298,
+    longitude: 45.1258,
+    maxBitrate: 20,
+    videoEnabled: true,
+    videoCodec: 'SupersssCodec',
+    videoOnUsb: true,
+    VideoSlic: true,
+    wifiMode: 'permDr',
+    wifiRate: 'strongV',
+    deliveryServiceData: {
+        carryLoad: 12
+    },
+    logisticsSupportService: {
+        distanceToEmitter: 0.5,
+        canFlyWithTeam: true,
+        canLeadTeam: true
+    },
+    img: 'http://1.bp.blogspot.com/-umsyIYBXXOU/Ve55bFv916I/AAAAAAAAWZs/EhZzWcq-nm4/s1600/Mini_Drone.jpg'
+});
+
+
+let dronesArr = [someDrone, someSecondDrone, someThirdDrone, someFourthDrone, someFifthDrone, someSixththDrone, someSeventhDrone, someEightDrone];
 
 dronesArr.forEach(dr => dr.save((err, entry, numAffected) => {
 

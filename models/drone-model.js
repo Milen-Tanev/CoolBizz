@@ -8,11 +8,11 @@ let validServices = require('../db/service-provider');
 const droneSchema = mongoose.Schema({
     name: {
         type: String,
-        required: [true,'The drone must have a name.']
+        required: [true, 'The drone must have a name.']
     },
     description: {
         type: String,
-        required: [true,'Description must be provided.']
+        required: [true, 'Description must be provided.']
     },
     serviceSupported: [{
         type: String,
@@ -20,7 +20,7 @@ const droneSchema = mongoose.Schema({
     }],
     pricePerDay: {
         type: Number,
-        required: [true,'Drone hiring price must be provided.']
+        required: [true, 'Drone hiring price must be provided.']
     },
     startRentDate: [{
         type: Date
@@ -68,7 +68,8 @@ const droneSchema = mongoose.Schema({
         distanceToEmitter: Number,
         canFlyWithTeam: Boolean,
         canLeadTeam: Boolean
-    }
+    },
+    img: String
 });
 
 module.exports = {
