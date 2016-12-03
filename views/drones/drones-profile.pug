@@ -1,13 +1,26 @@
 extends ../_layout
 
 block content
-    h1 Drone Details:
-        ul
-            li
-                p= drone.name
-                p= drone.manufacturer
-                img(src= drone.image)
-                p= drone.description
-                p= drone.serviceSupported
-                p= drone.pricePerDay
-                    span  per day
+
+
+    h2 Unit specifics:
+            ul
+                li
+                    table(table-border='2px solid blue')
+                        tr
+                            td(rowspan = 5)
+                                img.img-rounded(src= drone.img height='150' width ='150')
+                            td
+                                h4(align= 'left') Name assigned: #{drone.name}
+
+                        tr
+                            td
+                                h4(align= 'left') Made By: #{drone.manufacturer}
+                        tr
+                            td
+                                h4(align= 'left') Description: #{drone.description}
+                        tr
+                            td
+                                h4(align= 'left') Services supported: #{drone.serviceSupported}
+
+

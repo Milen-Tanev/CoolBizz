@@ -14,7 +14,7 @@ module.exports = function(models) {
                         console.log(err);
                         return reject(err);
                     }
-                    console.log(user);
+                    // console.log(user);
                     return resolve(user);
                 });
 

@@ -6,7 +6,7 @@ module.exports = function(app, data) {
     let controller = require('../controllers/search-controller')(data);
 
     router
-        .get('/search', controller.search)
+        .get('/search', controller.search);
 
     app.use('/', router);
 

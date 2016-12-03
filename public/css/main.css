@@ -28,7 +28,7 @@
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-    color: rgba(212, 212, 212, 1);
+    color: rgba(62, 71, 86, 1);
     background-color: rgba(231, 231, 231, 1);
 }
 
@@ -162,20 +162,20 @@ input[type="password"] {
 }
 
 .navbar-default {
-    border-color: rgb(136, 144, 155)
+    border-color: rgba(62, 71, 86, 1)
 }
 
 input.form-control {
-    color: rgba(62, 71, 86, 1);
+    color: black;
     background: transparent;
-    border-color: rgb(136, 144, 155);
+    border-color: rgba(62, 71, 86, 1);
     border-radius: 5px;
 }
 
 .btn.btn-default {
     background-color: blue;
     background: transparent;
-    border-color: rgb(136, 144, 155);
+    border-color: rgba(62, 71, 86, 1);
 }
 
 tbody img {
@@ -230,10 +230,10 @@ h2 {
         white-space: nowrap;
     }
     /* Label the data */
-    td:nth-of-type(1):before {
+    .home td:nth-of-type(1):before {
         content: "Business section ";
     }
-    td:nth-of-type(2):before {
+    .home td:nth-of-type(2):before {
         content: "Geek";
     }
     margin-bottom: 20px;
@@ -311,4 +311,32 @@ thead tr th {
 #map {
     height: 400px;
     width: 100%;
+}
+
+ul li {
+    list-style-type: none
+}
+
+body {
+    background-image: url('../img/videoframe.jpg')
+}
+
+.form-control::-webkit-input-placeholder {
+    color: rgba(231, 231, 231, 1);
+}
+
+.form-control:-moz-placeholder {
+    color: rgba(231, 231, 231, 1);
+}
+
+.form-control::-moz-placeholder {
+    color: rgba(231, 231, 231, 1);
+}
+
+.form-control:-ms-input-placeholder {
+    color: rgba(231, 231, 231, 1);
+}
+
+.leftAl {
+    align-items: flex
 }

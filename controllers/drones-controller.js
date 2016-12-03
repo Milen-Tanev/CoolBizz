@@ -1,6 +1,6 @@
 /* globals module */
 
-module.exports = function (data) {
+module.exports = function(data) {
     return {
         listDrones(req, res) {
             data.getAllDrones().then(drones => {
@@ -23,8 +23,8 @@ module.exports = function (data) {
         // Not good
         getServices(req, res) {
             res.render('drones/services', {
-                        drone: drone,
-                        user: req.user
+                drone,
+                user: req.user
             });
         }
     };

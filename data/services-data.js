@@ -1,4 +1,4 @@
-module.exports = function (models) {
+module.exports = function(models) {
     let {
         Drone
     } = models.Drone;
@@ -23,7 +23,7 @@ module.exports = function (models) {
                     if (err) {
                         return reject(err);
                     }
-                    console.log(drones);
+                    // console.log(drones);
                     return resolve(drones);
                 });
             });

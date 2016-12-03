@@ -5,7 +5,7 @@ const express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser');
 
-module.exports = function (data) {
+module.exports = function(data) {
     const app = express();
 
     app.use(bodyParser.json());
@@ -16,6 +16,6 @@ module.exports = function (data) {
     app.set('view engine', 'pug');
 
     app.use('/static', express.static('public'));
-    require("./passport/passport-config")(app, data);
+    require('./passport/passport-config')(app, data);
     return app;
-}
+};
