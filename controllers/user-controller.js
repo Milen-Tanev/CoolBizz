@@ -24,7 +24,7 @@ module.exports = function(data) {
                 user: req.user
             });
         },
-        getModifyProfileForm(res, req) {
+        getModifyProfileForm(req, res) {
             return res.render('users/modify-profile', {
                 user: req.user
             });

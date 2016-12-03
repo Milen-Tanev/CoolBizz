@@ -17,7 +17,7 @@ block content
                     span= user.phoneNumber
             .span2
                 .btn-group
-                            form(action="/modify-profile" method="get")
+                            a(href="/modify-profile")
                                         button.btn.btn-success.btn-lg
                                             | Modify Profile
                             form(action="/sign-out" method="put")
