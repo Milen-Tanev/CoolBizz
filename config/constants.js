@@ -1,7 +1,13 @@
 /* globals module, process */
 
-let port = process.env.PORT || 3004;
+const serverPort = 3004;
+const notAuthorizedServerResponse = 403;
+const minLength = 5;
+
+let port = process.env.PORT || serverPort;
 
 module.exports = {
-    PORT: port
+    PORT: port,
+    notAuthorizedServerResponse,
+    minLength
 };

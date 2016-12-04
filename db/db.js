@@ -1,3 +1,5 @@
+/* globals process */
+
 const mongoose = require('mongoose');
 let environment = process.env.NODE_ENV;
 let connString = 'mongodb://localhost:27017/drones';

@@ -2,7 +2,7 @@
 
 module.exports = function(data) {
     return {
-       getCreateDroneForm(req, res) {
+        getCreateDroneForm(req, res) {
             res.render('drones/create-drone', {
                 user: req.user
             });
@@ -10,7 +10,7 @@ module.exports = function(data) {
         listDrones(req, res) {
             data.getAllDrones().then(drones => {
                 res.render('drones/drones-list', {
-                    drones: drones,
+                    drones,
                     user: req.user
                 });
             });
@@ -20,12 +20,11 @@ module.exports = function(data) {
             data.getDrone(id)
                 .then(drone => {
                     res.render('drones/drones-profile', {
-                        drone: drone,
+                        drone,
                         user: req.user
                     });
                 });
         },
-        // Not good
         getServices(req, res) {
             res.render('drones/services', {
                 drone,

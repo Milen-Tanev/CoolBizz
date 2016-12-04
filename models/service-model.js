@@ -4,7 +4,7 @@ const serviceSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        index: { unique: true },
+        index: { unique: true }
     },
     isDeleted: {
         type: Boolean,

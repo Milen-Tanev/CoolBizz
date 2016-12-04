@@ -6,7 +6,7 @@ module.exports = function(data) {
             let pattern = req.query.pattern;
 
             data.getAllDrones().then(drones => {
-                let dronesFiltered = drones.filter(dr => dr.name === pattern)
+                let dronesFiltered = drones.filter(dr => dr.name === pattern);
 
                 if (dronesFiltered.length === 0) {
                     dronesFiltered = null;

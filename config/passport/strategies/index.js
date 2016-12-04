@@ -7,6 +7,6 @@ module.exports = function(passport, data) {
         .filter(file => file.includes('-strategy'))
         .forEach(file => {
             const modulePath = path.join(__dirname, file);
-            require(modulePath)( passport, data);
+            require(modulePath)(passport, data);
         });
 };

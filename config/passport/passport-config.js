@@ -2,13 +2,13 @@
 
 const passport = require('passport');
 
-module.exports = function(app, data){
+module.exports = function(app, data) {
 
     app.use(passport.initialize());
     app.use(passport.session());
 
     passport.serializeUser((user, done) => {
-        if(user){
+        if (user) {
             done(null, user.id);
         }
     });
@@ -25,6 +25,5 @@ module.exports = function(app, data){
             .catch(error => done(error, false));
     });
 
-
     require('./strategies')(passport, data);
-}
+};

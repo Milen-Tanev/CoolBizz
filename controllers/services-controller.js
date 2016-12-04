@@ -1,24 +1,25 @@
-module.exports = function(data) {
+const constants = require('../config/constants');
+
+module.exports = function (data) {
     return {
-      createService(req, res) {
+        createService(req, res) {
             let { name } = req.body;
             let userId = req.session.passport.user;
 
             data.findUserById(userId)
-            .then((user) => {
-                let role = user.role;
-                let isDeleted = user.isDeleted;
+                .then(user => {
+                    let role = user.role;
+                    let isDeleted = user.isDeleted;
 
-                if(role === 'admin' && isDeleted.toString() === 'false'){
-                    data.createService(name)
-                    .then(() => {
-                        return res.redirect('/services');
-                    });
-                }
-                else{
-                    return res.status(403).send("You are not autorized for creating new services");
-                }
-            });
+                    if (role === 'admin' && isDeleted.toString() === 'false') {
+                        data.createService(name)
+                            .then(() => {
+                                return res.redirect('/services');
+                            });
+                    } else {
+                        return res.status(constants.notAuthorizedServerResponse).send('You are not autorized for creating new services');
+                    }
+                });
         },
         getAllServices(req, res) {
             data.getAllServices().then(services => {

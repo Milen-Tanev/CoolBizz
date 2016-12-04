@@ -7,19 +7,19 @@ module.exports = function(models) {
         Service
     } = models.Service;
 
-
+    const errorLogger = require('../config/error-logger');
     return {
         createService(name) {
 
-            let service = new Service({name});
+            let service = new Service({ name });
 
             return new Promise((resolve, reject) => {
                 service.save(err => {
                     if (err) {
-                        console.log(err);
+                        errorLogger(err);
                         return reject(err);
                     }
-                    //console.log(user);
+                    // console.log(user);
                     return resolve(service);
                 });
             });
@@ -30,6 +30,7 @@ module.exports = function(models) {
                     'serviceSupported',
                     (err, services) => {
                         if (err) {
+                            errorLogger(err);
                             return reject(err);
                         }
 
@@ -41,6 +42,7 @@ module.exports = function(models) {
             return new Promise((resolve, reject) => {
                 Drone.find({ serviceSupported: name }, (err, drones) => {
                     if (err) {
+                        errorLogger(err);
                         return reject(err);
                     }
                     // console.log(drones);

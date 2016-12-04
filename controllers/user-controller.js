@@ -1,4 +1,5 @@
 /* globals module */
+const errorLogger = require('../config/error-logger');
 
 module.exports = function(data) {
     return {
@@ -51,14 +52,14 @@ module.exports = function(data) {
             let userId = req.session.passport.user;
             req.logout();
             data.modifyUser(userId, oldPassword, newPassword, email, phoneNumber)
-                .then((err) => {
-
+                .then(err => {
+                    errorLogger(err);
                     res.redirect('/');
                 });
         },
         deleteProfile(req, res) {
             let {
-                password,
+                password
             } = req.body;
 
             let userId = req.session.passport.user;
@@ -67,6 +68,7 @@ module.exports = function(data) {
                 .then((user, err) => {
                     req.logout();
                     res.redirect('/');
+                    errorLogger(err);
                 });
         },
         getUserDetails(req, res) {
@@ -77,10 +79,10 @@ module.exports = function(data) {
         getUserHistory(req, res) {
             let id = req.params.id;
             data.getUserHistory(id).then(history => {
-                res.render('users.user-history',{
-                    history:history
+                res.render('users.user-history', {
+                    history
                 });
-            })
+            });
         }
     };
 };

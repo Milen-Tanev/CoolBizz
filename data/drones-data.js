@@ -3,8 +3,8 @@ module.exports = function(models) {
         Drone
     } = models.Drone;
 
-//console.log(Drone);
-//    let Drone = require('../models/drone-model').Drone;
+// console.log(Drone);
+// let Drone = require('../models/drone-model').Drone;
 
     return {
         getAllDrones() {

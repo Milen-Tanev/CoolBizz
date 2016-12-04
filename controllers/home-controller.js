@@ -11,22 +11,21 @@ module.exports = function(data) {
             return res.render('home/about-us', {
                 user: req.user,
                 Members: [{
-                        name: 'Velin',
-                        github: 'https://github.com/VelinYordanov'
-                    },
-                    {
-                        name: 'Viliana',
-                        github: 'https://github.com/VilianaZhilkova'
-                    },
-                    {
-                        name: 'Milen',
-                        github: 'https://github.com/Milen-Tanev'
-                    },
-                    {
-                        name: 'Mihail',
-                        github: 'https://github.com/singularity0'
-                    }
-                ]
+                    name: 'Velin',
+                    github: 'https://github.com/VelinYordanov'
+                },
+                {
+                    name: 'Viliana',
+                    github: 'https://github.com/VilianaZhilkova'
+                },
+                {
+                    name: 'Milen',
+                    github: 'https://github.com/Milen-Tanev'
+                },
+                {
+                    name: 'Mihail',
+                    github: 'https://github.com/singularity0'
+                }]
             });
         }
     };

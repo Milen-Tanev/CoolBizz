@@ -1,7 +1,7 @@
-/*globals require module */
+/* globals require module */
 
 const LocalStrategy = require('passport-local').Strategy,
-encrypt = require('../../encrypt');
+    encrypt = require('../../encrypt');
 
 module.exports = function (passport, data) {
 
@@ -10,7 +10,7 @@ module.exports = function (passport, data) {
     }
 
     const authStrategy = new LocalStrategy(
-        function(username, password, done) {
+        (username, password, done) => {
             data.findByUsername(username)
                 .then(user => {
                     if (user && authenticate(user, password) && user.isDeleted.toString() === 'false') {
@@ -21,7 +21,7 @@ module.exports = function (passport, data) {
                 })
                 .catch(err => {
                     done(err, false);
-                })
+                });
         });
 
     passport.use(authStrategy);

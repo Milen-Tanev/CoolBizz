@@ -1,6 +1,6 @@
 /* globals require module */
-const encrypt = require('../config/encrypt');
-const errorLogger = require('../config/error-logger');
+const encrypt = require('../config/encrypt'),
+    errorLogger = require('../config/error-logger');
 
 module.exports = function(models) {
     let {
@@ -12,11 +12,11 @@ module.exports = function(models) {
 
             let salt = encrypt.generateSalt();
 
-            password = encrypt.hashPassword(salt, password);
+            let newPassword = encrypt.hashPassword(salt, password);
 
             let user = new User({
                 username,
-                password,
+                newPassword,
                 salt,
                 firstName,
                 lastName,
@@ -28,7 +28,7 @@ module.exports = function(models) {
                 user.save(err => {
                     if (err) {
                         errorLogger(err);
-                        global.alert('Wrong input');
+                        return reject(err);
                     }
                     // console.log(user);
                     return resolve(user);
@@ -40,51 +40,55 @@ module.exports = function(models) {
                 User.findOne({
                     _id: userId
                 }, (err, user) => {
-                    if(encrypt.hashPassword(user.salt, oldPassword) === user.password) {
-                        if(newPassword !== '') {
-                            var salt = encrypt.generateSalt();
-                            password = encrypt.hashPassword(salt, newPassword);
+                    if (encrypt.hashPassword(user.salt, oldPassword) === user.password) {
+                        if (newPassword !== '') {
+                            let salt = encrypt.generateSalt();
+                            let password = encrypt.hashPassword(salt, newPassword);
 
-                            user.update({ salt, password }, err => {
+                            user.update({ salt, password }, () => {
                                 if (err) {
+                                    errorLogger(err);
                                     return reject(err);
-                            }
+                                }
                                 return resolve(user);
                             });
                         }
                         if (email !== '') {
-                            user.update({ email }, err => {
+                            user.update({ email }, () => {
                                 if (err) {
+                                    errorLogger(err);
                                     return reject(err);
                                 }
                                 return resolve(user);
                             });
                         }
                         if (phoneNumber !== '') {
-                            user.update({ phoneNumber }, err => {
+                            user.update({ phoneNumber }, () => {
                                 if (err) {
+                                    errorLogger(err);
                                     return reject(err);
                                 }
                                 return resolve(user);
                             });
-                        };
+                        }
                     }
                 });
             });
         },
-        deleteUser(userId, password){
+        deleteUser(userId, password) {
             return new Promise((resolve, reject) => {
                 User.findOne({
                     _id: userId
                 }, (err, user) => {
-                    if(encrypt.hashPassword(user.salt, password) === user.password) {
-                            var isDeleted = true;
-                            user.update({ isDeleted }, err => {
-                                if (err) {
-                                    return reject(err);
+                    if (encrypt.hashPassword(user.salt, password) === user.password) {
+                        let isDeleted = true;
+                        user.update({ isDeleted }, () => {
+                            if (err) {
+                                errorLogger(err);
+                                return reject(err);
                             }
-                                return resolve(user);
-                            });
+                            return resolve(user);
+                        });
                     }
                 });
             });
@@ -108,7 +112,7 @@ module.exports = function(models) {
                     _id: id
                 }, (err, user) => {
                     if (err) {
-                        console.log(err);
+                        errorLogger(err);
                         return reject(err);
                     }
                     return resolve(user);
@@ -120,6 +124,7 @@ module.exports = function(models) {
                 User.find()
                     .exec((err, powers) => {
                         if (err) {
+                            errorLogger(err);
                             return reject(err);
                         }
                         return resolve(powers);
@@ -132,14 +137,15 @@ module.exports = function(models) {
                     _id: id
                 }, {
                     historyOfPurchases: []
-                }, (err, hisotory) => {
+                }, (err, history) => {
                     if (err) {
+                        errorLogger(err);
                         return reject(err);
                     }
 
                     return resolve(history);
-                })
-            })
+                });
+            });
         }
     };
 };
