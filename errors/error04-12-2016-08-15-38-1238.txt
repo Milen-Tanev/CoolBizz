@@ -1,0 +1,1 @@
+ValidationError: Phone numbwer must start with +359, Invalid email, Last name must start with a capital letter, First name must start with a campital letter

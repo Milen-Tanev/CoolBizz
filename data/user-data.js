@@ -1,5 +1,6 @@
 /* globals require module */
 const encrypt = require('../config/encrypt');
+const errorLogger = require('../config/error-logger');
 
 module.exports = function(models) {
     let {
@@ -9,7 +10,7 @@ module.exports = function(models) {
     return {
         createUser(username, password, firstName, lastName, email, phoneNumber) {
 
-            var salt = encrypt.generateSalt();
+            let salt = encrypt.generateSalt();
 
             password = encrypt.hashPassword(salt, password);
 
@@ -26,10 +27,10 @@ module.exports = function(models) {
             return new Promise((resolve, reject) => {
                 user.save(err => {
                     if (err) {
-                        console.log(err);
-                        return reject(err);
+                        errorLogger(err);
+                        global.alert('Wrong input');
                     }
-                    //console.log(user);
+                    // console.log(user);
                     return resolve(user);
                 });
             });

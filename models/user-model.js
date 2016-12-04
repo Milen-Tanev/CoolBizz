@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: [5,'The password is too short']
-        //maxlength: [15,'The password is too long']
     },
     salt: {
         type: String,
