@@ -2,6 +2,11 @@
 
 module.exports = function(data) {
     return {
+       getCreateDroneForm(req, res) {
+            res.render('drones/create-drone', {
+                user: req.user
+            });
+        },
         listDrones(req, res) {
             data.getAllDrones().then(drones => {
                 res.render('drones/drones-list', {

@@ -6,6 +6,7 @@ module.exports = function(app, data) {
 
     router
         .get('/drones', controller.listDrones)
+        .get('/drones/create-drone', controller.getCreateDroneForm)
         .get('/drones/:id', controller.getDroneDetails)
         .get('/drones/services', controller.getServices)
         .get('/services/drones/:id', controller.getDroneDetails);

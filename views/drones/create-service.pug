@@ -1,0 +1,10 @@
+extends ../_layout
+
+block content
+    .container
+        .wrapper
+        form.form-signin(action="/services/create-service" method="post" name="Create_Services_Form")
+            h3.form-signin-heading Create new service
+                br.colorgraph
+                input.form-control.sign-in(type="text" name="name" placeholder="name" required="" autofocus="")
+            button.btn.btn-lg.btn-primary.btn-block(type="submit" name="Submit") Create

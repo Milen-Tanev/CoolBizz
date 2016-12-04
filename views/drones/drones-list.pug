@@ -6,9 +6,9 @@ block content
         ul
         if user
             if user.role === "admin"
-                form.navbar-form.pull-right(action="/create-drone" method="get")
+                a(href="drones/create-drone")
                     .input-group-btn
-                        button.btn.btn-lg.btn-primary(type="submit" name="Submit" value="Create new drone") Create new drone
+                        button.btn.btn-lg.btn-primary(type="submit") Create new drone
         each drone in drones
             li
                 a(href='/drones/'+drone._id)= drone.name
@@ -46,5 +46,3 @@ block content
     //-             }
     //-     }
     //- script(type ="text/javascript" src='https://maps.googleapis.com/maps/api/js?key=KEY&callback=initMap' async defer)
-
-

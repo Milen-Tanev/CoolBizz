@@ -5,9 +5,9 @@ block content
     ul
     if user
         if user.role === "admin"
-            form.navbar-form.pull-right(action="/create-service" method="get")
+             a(href="services/create-service")
                 .input-group-btn
-                    button.btn.btn-lg.btn-primary(type="submit" name="Submit" value="Create new drone") Create new drone
+                    button.btn.btn-lg.btn-primary(type="submit") Create new service
         each service in services
             li
                 h3

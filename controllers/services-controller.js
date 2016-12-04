@@ -8,6 +8,11 @@ module.exports = function(data) {
                 });
             });
         },
+        getCreateServiceForm(req, res) {
+            res.render('drones/create-service', {
+                user: req.user
+            });
+        },
         getDronesWithService(req, res) {
             let name = req.params.name;
             data.getAllDronesWithService(name).then(drones => {
