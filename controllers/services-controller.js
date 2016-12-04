@@ -2,19 +2,23 @@ module.exports = function(data) {
     return {
       createService(req, res) {
             let { name } = req.body;
-            let {role} = req.body;
+            let userId = req.session.passport.user;
 
-            if(role === 'admin'){
-                data.createService(name)
+            data.findUserById(userId)
+            .then((user) => {
+                let role = user.role;
+                let isDeleted = user.isDeleted;
+
+                if(role === 'admin' && isDeleted.toString() === 'false'){
+                    data.createService(name)
                     .then(() => {
                         return res.redirect('/services');
-                 });
-            }
-            else{
-                return res.status(404).send("You are not autorized for creating new services");
-            }
-            console.log(res);
-
+                    });
+                }
+                else{
+                    return res.status(403).send("You are not autorized for creating new services");
+                }
+            });
         },
         getAllServices(req, res) {
             data.getAllServices().then(services => {
