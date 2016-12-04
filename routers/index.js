@@ -7,6 +7,6 @@ module.exports = function(app, data) {
         .filter(file => file.includes('-router'))
         .forEach(file => {
             const modulePath = path.join(__dirname, file);
-            require(modulePath)( app, data);
+            require(modulePath)(app, data);
         });
 };

@@ -8,7 +8,7 @@ module.exports = function(data) {
             data.createUser(username, password, firstName, lastName, email, phoneNumber)
                 .then(() => {
                     return res.redirect('/sign-in');
-                });
+                 });
         },
         signOut(req, res) {
             req.logout();
@@ -30,9 +30,10 @@ module.exports = function(data) {
             });
         },
         modifyProfile(req, res) {
-            data.modifyUser(req.user, req.password, req.email, req.phoneNumber)
+            let { id, password, email, phoneNumber } = req.body;
+            data.modifyUser(id, password, email, phoneNumber)
                 .then(() => {
-                    return res.render('/modify-profile/:id');
+                    return res.render('/');
                 });
         },
         getUserDetails(req, res) {

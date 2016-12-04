@@ -1,1 +1,29 @@
-h1 Modify
+extends ../_layout
+
+block content
+    form.form-horizontal
+        h1 Modify User Account
+        fieldset
+            legend Modify Password
+                .form-group
+                    label.col-md-4.control-label(for='piCurrPass') Current password
+                    .col-md-4
+                        input#piCurrPass.form-control.input-md(type='password' placeholder='')
+                .form-group
+                    label.col-md-4.control-label(for='piNewPass') New password
+                    .col-md-4
+                        input#piNewPass.form-control.input-md(type='password' placeholder='')
+        fieldset
+            legend Modify Email
+                .form-group
+                    label.col-md-4.control-label(for='piNewEmail') New E-mail Address
+                    .col-md-4
+                        input#piNewEmail.form-control.input-md(type='email' placeholder='')
+        fieldset
+            legend Modify Phone Number
+                .form-group
+                    label.col-md-4.control-label(for='piNewPhoneNr') New Phone Number
+                    .col-md-4
+                        input#piNewPhoneNr.form-control.input-md(type='text' name='phoneNumber' placeholder='')
+        a(href='/')
+            button.btn.btn-lg.btn-primary Submit changes
