@@ -1,5 +1,6 @@
 /* globals module */
-const errorLogger = require('../config/error-logger');
+const errorLogger = require('../config/error-logger'),
+    constants = require('../config/constants');
 
 module.exports = function(data) {
     return {
@@ -15,6 +16,10 @@ module.exports = function(data) {
             data.createUser(username, password, firstName, lastName, email, phoneNumber)
                 .then(() => {
                     return res.redirect('/sign-in');
+                })
+                .catch(err => {
+                    errorLogger(err);
+                    res.status(constants.invalidInputServerResponse).send('Please enter valid data');
                 });
         },
         signOut(req, res) {

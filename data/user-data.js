@@ -12,11 +12,11 @@ module.exports = function(models) {
 
             let salt = encrypt.generateSalt();
 
-            password = encrypt.hashPassword(salt, password);
+            let newPassword = encrypt.hashPassword(salt, password);
 
             let user = new User({
                 username,
-                password,
+                newPassword,
                 salt,
                 firstName,
                 lastName,

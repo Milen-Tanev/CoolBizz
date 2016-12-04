@@ -1,3 +1,5 @@
+const errorLogger = require('../config/error-logger');
+
 module.exports = function(models) {
     let {
         Drone
@@ -7,7 +9,6 @@ module.exports = function(models) {
         Service
     } = models.Service;
 
-    const errorLogger = require('../config/error-logger');
     return {
         createService(name) {
 

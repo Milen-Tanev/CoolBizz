@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const droneSchema = require('./drone-model').droneSchema;
+const mongoose = require('mongoose'),
+    droneSchema = require('./drone-model').droneSchema;
 
 const historySchema = new mongoose.Schema({
     drone: droneSchema,

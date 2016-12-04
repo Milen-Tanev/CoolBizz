@@ -1,4 +1,5 @@
 /* globals module */
+const constants = require('../config/constants');
 
 module.exports = function(data) {
     return {
@@ -8,7 +9,7 @@ module.exports = function(data) {
             data.getAllDrones().then(drones => {
                 let dronesFiltered = drones.filter(dr => dr.name === pattern);
 
-                if (dronesFiltered.length === 0) {
+                if (dronesFiltered.length === constants.zero) {
                     dronesFiltered = null;
                 }
 

@@ -1,4 +1,5 @@
-const constants = require('../config/constants');
+const constants = require('../config/constants'),
+    errorLogger = require('../config/error-logger');
 
 module.exports = function (data) {
     return {
@@ -19,6 +20,10 @@ module.exports = function (data) {
                     } else {
                         return res.status(constants.notAuthorizedServerResponse).send('You are not autorized for creating new services');
                     }
+                })
+                .catch(err => {
+                    errorLogger(err);
+                    res.status(constants.invalidInputServerResponse).send('Please enter valid data');
                 });
         },
         getAllServices(req, res) {
@@ -38,7 +43,7 @@ module.exports = function (data) {
             let name = req.params.name;
             data.getAllDronesWithService(name).then(drones => {
                 res.render('drones/drones-with-service.pug', {
-                    service: drones[0].serviceSupported,
+                    service: drones[constants.zero].serviceSupported,
                     drones,
                     user: req.user
                 });
