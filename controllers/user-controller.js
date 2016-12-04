@@ -45,7 +45,7 @@ module.exports = function(data) {
             } = req.body;
             data.modifyUser(id, password, email, phoneNumber)
                 .then(() => {
-                    return res.render('/');
+                    res.redirect('/');
                 });
         },
         getUserDetails(req, res) {
