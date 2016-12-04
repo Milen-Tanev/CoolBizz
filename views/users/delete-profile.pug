@@ -1,0 +1,12 @@
+extends ../_layout
+
+block content
+    form.form-horizontal(action="/delete-profile" method="post" name="Register_Form")
+        h1 Delete User Account
+        fieldset
+            legend Enter Password
+                .form-group
+                    label.col-md-4.control-label(for='piCurrPass') Current password
+                    .col-md-4
+                        input#piCurrPass.form-control.input-md(type='password' name="password" placeholder='')
+        button.btn.btn-lg.btn-primary(type="submit" name="Submit" value="Delete_Profile") Delete Profile

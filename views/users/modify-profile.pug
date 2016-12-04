@@ -1,29 +1,28 @@
 extends ../_layout
 
 block content
-    form.form-horizontal
+    form.form-horizontal(action="/modify-profile" method="post" name="Register_Form")
         h1 Modify User Account
         fieldset
             legend Modify Password
                 .form-group
                     label.col-md-4.control-label(for='piCurrPass') Current password
                     .col-md-4
-                        input#piCurrPass.form-control.input-md(type='password' placeholder='')
+                        input#piCurrPass.form-control.input-md(type='password' name="oldPassword" placeholder='')
                 .form-group
                     label.col-md-4.control-label(for='piNewPass') New password
                     .col-md-4
-                        input#piNewPass.form-control.input-md(type='password' placeholder='')
+                        input#piNewPass.form-control.input-md(type='password' name="newPassword" placeholder='')
         fieldset
             legend Modify Email
                 .form-group
                     label.col-md-4.control-label(for='piNewEmail') New E-mail Address
                     .col-md-4
-                        input#piNewEmail.form-control.input-md(type='email' placeholder='')
+                        input#piNewEmail.form-control.input-md(type='email' name="email" placeholder='')
         fieldset
             legend Modify Phone Number
                 .form-group
                     label.col-md-4.control-label(for='piNewPhoneNr') New Phone Number
                     .col-md-4
                         input#piNewPhoneNr.form-control.input-md(type='text' name='phoneNumber' placeholder='')
-        a(href='/')
-            button.btn.btn-lg.btn-primary Submit changes
+        button.btn.btn-lg.btn-primary(type="submit" name="Submit" value="Login") Save Changes

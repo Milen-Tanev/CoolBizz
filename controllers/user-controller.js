@@ -2,7 +2,6 @@
 
 module.exports = function(data) {
     return {
-        name: 'authentication',
         register(req, res) {
             let {
                 username,
@@ -36,15 +35,37 @@ module.exports = function(data) {
                 user: req.user
             });
         },
+        getDeleteProfileForm(req, res) {
+            return res.render('users/delete-profile', {
+                user: req.user
+            });
+        },
         modifyProfile(req, res) {
             let {
-                id,
-                password,
+                oldPassword,
+                newPassword,
                 email,
                 phoneNumber
             } = req.body;
-            data.modifyUser(id, password, email, phoneNumber)
-                .then(() => {
+
+            let userId = req.session.passport.user;
+            req.logout();
+            data.modifyUser(userId, oldPassword, newPassword, email, phoneNumber)
+                .then((err) => {
+
+                    res.redirect('/');
+                });
+        },
+        deleteProfile(req, res) {
+            let {
+                password,
+            } = req.body;
+
+            let userId = req.session.passport.user;
+
+            data.deleteUser(userId, password)
+                .then((user, err) => {
+                    req.logout();
                     res.redirect('/');
                 });
         },

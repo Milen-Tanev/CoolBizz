@@ -19,7 +19,5 @@ module.exports = function(app, data) {
             (req, res) => res.redirect('/'))
         .post('/sign-out', controller.signOut);
 
-
-
     app.use('/', router);
 }
