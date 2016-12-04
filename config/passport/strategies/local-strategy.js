@@ -13,7 +13,7 @@ module.exports = function (passport, data) {
         function(username, password, done) {
             data.findByUsername(username)
                 .then(user => {
-                    if (user && authenticate(user, password)) {
+                    if (user && authenticate(user, password) && user.isDeleted.toString() === 'false') {
                         done(null, user);
                     } else {
                         done(null, false);
