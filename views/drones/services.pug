@@ -8,7 +8,7 @@ block content
              a(href="services/create-service")
                 .input-group-btn
                     button.btn.btn-lg.btn-primary(type="submit") Create new service
-        each service in services
+    each service in services
             li
                 h3
                     a(href= 'services/'+service align='left')= service

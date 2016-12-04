@@ -3,7 +3,27 @@ module.exports = function(models) {
         Drone
     } = models.Drone;
 
+    let {
+        Service
+    } = models.Service;
+
+
     return {
+        createService(name) {
+
+            let service = new Service({name});
+
+            return new Promise((resolve, reject) => {
+                service.save(err => {
+                    if (err) {
+                        console.log(err);
+                        return reject(err);
+                    }
+                    //console.log(user);
+                    return resolve(service);
+                });
+            });
+        },
         getAllServices() {
             return new Promise((resolve, reject) => {
                 Drone.distinct(

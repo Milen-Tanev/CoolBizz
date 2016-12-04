@@ -1,5 +1,21 @@
 module.exports = function(data) {
     return {
+      createService(req, res) {
+            let { name } = req.body;
+            let {role} = req.body;
+
+            if(role === 'admin'){
+                data.createService(name)
+                    .then(() => {
+                        return res.redirect('/services');
+                 });
+            }
+            else{
+                return res.status(404).send("You are not autorized for creating new services");
+            }
+            console.log(res);
+
+        },
         getAllServices(req, res) {
             data.getAllServices().then(services => {
                 res.render('drones/services.pug', {

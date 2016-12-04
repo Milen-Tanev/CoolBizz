@@ -7,6 +7,7 @@ module.exports = function(app, data) {
     router
         .get('/', controller.getAllServices)
         .get('/create-service', controller.getCreateServiceForm)
+        .post('/create-service', controller.createService)
         .get('/:name', controller.getDronesWithService);
 
     app.use('/services', router);
