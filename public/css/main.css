@@ -322,19 +322,19 @@ body {
 }
 
 .form-control::-webkit-input-placeholder {
-    color: rgba(231, 231, 231, 1);
+    color: black;
 }
 
 .form-control:-moz-placeholder {
-    color: rgba(231, 231, 231, 1);
+    color: black;
 }
 
 .form-control::-moz-placeholder {
-    color: rgba(231, 231, 231, 1);
+    color: black;
 }
 
 .form-control:-ms-input-placeholder {
-    color: rgba(231, 231, 231, 1);
+    color: black;
 }
 
 .leftAl {
