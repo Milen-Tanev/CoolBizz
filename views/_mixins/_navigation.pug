@@ -26,6 +26,9 @@ mixin mixin-navigation
                                     a(href='/'+user._id)
                                         | View profile
                                 li
+                                    a(href='/hisotry/'+user._id)
+                                        | Show purchase history
+                                li
                                     form(action="/sign-out" method="post")
                                         button.signOut
                                             | Sign out

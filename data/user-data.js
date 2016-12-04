@@ -11,9 +11,17 @@ module.exports = function(models) {
 
             var salt = encrypt.generateSalt();
 
-            password = encrypt.hashPassword(salt, password );
+            password = encrypt.hashPassword(salt, password);
 
-            let user = new User({ username, password, salt, firstName, lastName, email, phoneNumber });
+            let user = new User({
+                username,
+                password,
+                salt,
+                firstName,
+                lastName,
+                email,
+                phoneNumber
+            });
 
             return new Promise((resolve, reject) => {
                 user.save(err => {
@@ -28,14 +36,19 @@ module.exports = function(models) {
         },
         modifyUser(user, password, email, phoneNumber) {
             return new Promise((resolve, reject) => {
-                User.findOne({ _id: id }, (err, user) => {
+                User.findOne({
+                    _id: id
+                }, (err, user) => {
                     if (password) {
 
                         let salt = encrypt.generateSalt();
 
-                        password = encrypt.hashPassword(salt, password );
+                        password = encrypt.hashPassword(salt, password);
 
-                        user.update({ salt, password }, err => {
+                        user.update({
+                            salt,
+                            password
+                        }, err => {
                             if (err) {
                                 return reject(err);
                             }
@@ -43,7 +56,9 @@ module.exports = function(models) {
                         });
                     }
                     if (email) {
-                        user.update({ email }, err => {
+                        user.update({
+                            email
+                        }, err => {
                             if (err) {
                                 return reject(err);
                             }
@@ -51,7 +66,9 @@ module.exports = function(models) {
                         });
                     }
                     if (phoneNumber) {
-                        user.update({ phoneNumber }, err => {
+                        user.update({
+                            phoneNumber
+                        }, err => {
                             if (err) {
                                 return reject(err);
                             }
@@ -63,7 +80,9 @@ module.exports = function(models) {
         },
         findByUsername(username) {
             return new Promise((resolve, reject) => {
-                User.findOne({ username }, (err, user) => {
+                User.findOne({
+                    username
+                }, (err, user) => {
 
                     if (err) {
                         return reject(err);
@@ -74,7 +93,9 @@ module.exports = function(models) {
         },
         findUserById(id) {
             return new Promise((resolve, reject) => {
-                User.findOne({ _id: id }, (err, user) => {
+                User.findOne({
+                    _id: id
+                }, (err, user) => {
                     if (err) {
                         console.log(err);
                         return reject(err);
@@ -93,6 +114,21 @@ module.exports = function(models) {
                         return resolve(powers);
                     });
             });
+        },
+        getUserHistory(id) {
+            return new Promise((resolve, reject) => {
+                User.findOne({
+                    _id: id
+                }, {
+                    historyOfPurchases: []
+                }, (err, hisotory) => {
+                    if (err) {
+                        return reject(err);
+                    }
+
+                    return resolve(history);
+                })
+            })
         }
     };
 };
