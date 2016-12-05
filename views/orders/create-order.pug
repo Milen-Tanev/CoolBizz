@@ -1,0 +1,16 @@
+extends ../_layout
+
+block content
+    .container
+        .wrapper
+        form.form-signin(action="/create-order" method="post" name="Create_Order_Form")
+            h3.form-signin-heading Create new order
+                br.colorgraph
+            select.form-control(name="orderType")
+                option(value="") -- Select Province --
+                each service in services
+                    option(value=service)= service
+
+            input.form-control.sign-in(type="date" name="startDate" placeholder="Start Date" required="" autofocus="")
+            input.form-control.sign-in(type="date" name="endDate" placeholder="End Date" required="" autofocus="")
+            button.btn.btn-lg.btn-primary.btn-block(type="submit" name="Submit") Create
