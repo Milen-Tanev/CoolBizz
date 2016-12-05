@@ -10,8 +10,8 @@ module.exports = function(app, data) {
         .post('/modify-profile', controller.modifyProfile)
         .get('/delete-profile', controller.getDeleteProfileForm)
         .post('/delete-profile', controller.deleteProfile)
-        .get('/:id', controller.getUserDetails)
-        .get('/history/:id', controller.getUserHistory);
+        .get('/history', controller.getUserOrdersHistory)
+        .get('/:id', controller.getUserDetails);
 
     app.use('/', router);
 };

@@ -117,34 +117,6 @@ module.exports = function(models) {
                     return resolve(user);
                 });
             });
-        },
-        getAllUsers() {
-            return new Promise((resolve, reject) => {
-                User.find()
-                    .exec((err, powers) => {
-                        if (err) {
-                            errorLogger(err);
-                            return reject(err);
-                        }
-                        return resolve(powers);
-                    });
-            });
-        },
-        getUserHistory(id) {
-            return new Promise((resolve, reject) => {
-                User.findOne({
-                    _id: id
-                }, {
-                    historyOfPurchases: []
-                }, (err, history) => {
-                    if (err) {
-                        errorLogger(err);
-                        return reject(err);
-                    }
-
-                    return resolve(history);
-                });
-            });
         }
     };
 };

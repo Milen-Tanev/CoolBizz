@@ -1,11 +1,11 @@
-extends ../_layout
+extends ./_layout
 
 block content
-h1 History of purchases:
-ul
-each element in history
-        li
-            div
-                p= element.drone.name
-                p= element.startDate
-                p= element.endDate
+    h1 History of purchases:
+    ul
+    if orders
+        each order in orders
+            li
+                strong= order.orderType
+                p= order.startDate
+                p= order.endDate

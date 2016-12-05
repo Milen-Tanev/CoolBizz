@@ -10,5 +10,3 @@ require('./routers')(app, dataService);
 app.listen(config.PORT, () => console.log(`
     The app is working on http://localhost:${config.PORT}
     Stable version available at ${process.env.herokuapp}`));
-
-// console.log(app);

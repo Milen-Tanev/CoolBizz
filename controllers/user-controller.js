@@ -81,13 +81,15 @@ module.exports = function(data) {
                 user: req.user
             });
         },
-        getUserHistory(req, res) {
-            let id = req.params.id;
-            data.getUserHistory(id).then(history => {
-                res.render('users.user-history', {
-                    history
-                });
-            });
+        getUserOrdersHistory(req, res) {
+            let userId = req.session.passport.user;
+            data.getAllOrders(userId)
+                .then(orders => {
+                    res.render('user-history',{
+                        orders: orders,
+                        user: req.user
+                    })
+                })
         }
     };
 };

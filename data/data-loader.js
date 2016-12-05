@@ -6,8 +6,9 @@ module.exports = function(db) {
     let Drone = require('../models/drone-model');
     let Service = require('../models/service-model');
     let User = require('../models/user-model');
+    let Order = require('../models/order-model')
 
-    let models = { Drone, Service, User };
+    let models = { Drone, Service, User, Order };
 
     let data = {};
 
