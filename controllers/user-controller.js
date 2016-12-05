@@ -15,11 +15,11 @@ module.exports = function(data) {
             } = req.body;
             data.createUser(username, password, firstName, lastName, email, phoneNumber)
                 .then(() => {
-                    return res.redirect('/sign-in');
+                    return res.status(200).redirect('/sign-in');
                 })
                 .catch(err => {
                     errorLogger(err);
-                    res.status(constants.invalidInputServerResponse).send('Please enter valid data');
+                    res.status(200).status(constants.invalidInputServerResponse).send('Please enter valid data');
                 });
         },
         signOut(req, res) {
@@ -27,22 +27,22 @@ module.exports = function(data) {
             res.redirect('/');
         },
         getSignInForm(req, res) {
-            return res.render('users/sign-in', {
+            return res.status(200).render('users/sign-in', {
                 user: req.user
             });
         },
         getRegistrationForm(req, res) {
-            return res.render('users/registration', {
+            return res.status(200).render('users/registration', {
                 user: req.user
             });
         },
         getModifyProfileForm(req, res) {
-            return res.render('users/modify-profile', {
+            return res.status(200).render('users/modify-profile', {
                 user: req.user
             });
         },
         getDeleteProfileForm(req, res) {
-            return res.render('users/delete-profile', {
+            return res.status(200).render('users/delete-profile', {
                 user: req.user
             });
         },
@@ -59,7 +59,11 @@ module.exports = function(data) {
             data.modifyUser(userId, oldPassword, newPassword, email, phoneNumber)
                 .then(err => {
                     errorLogger(err);
-                    res.redirect('/');
+                    res.status(200).redirect('/');
+                })
+                .catch(err => {
+                    res.status(500)
+                        .send(err);
                 });
         },
         deleteProfile(req, res) {
@@ -72,12 +76,12 @@ module.exports = function(data) {
             data.deleteUser(userId, password)
                 .then((user, err) => {
                     req.logout();
-                    res.redirect('/');
+                    res.status(200).redirect('/');
                     errorLogger(err);
                 });
         },
         getUserDetails(req, res) {
-            return res.render('users/user-profile', {
+            return res.status(200).render('users/user-profile', {
                 user: req.user
             });
         },
@@ -85,11 +89,15 @@ module.exports = function(data) {
             let userId = req.session.passport.user;
             data.getAllOrders(userId)
                 .then(orders => {
-                    res.render('user-history',{
+                    res.status(200).render('user-history', {
                         orders: orders,
                         user: req.user
-                    })
+                    });
                 })
+                .catch(err => {
+                    res.status(500)
+                        .send(err);
+                });
         }
     };
 };

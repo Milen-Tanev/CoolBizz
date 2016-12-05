@@ -6,18 +6,23 @@ module.exports = function(data) {
         search(req, res) {
             let pattern = req.query.pattern;
 
-            data.getAllDrones().then(drones => {
-                let dronesFiltered = drones.filter(dr => dr.name === pattern);
+            data.getAllDrones()
+                .then(drones => {
+                    let dronesFiltered = drones.filter(dr => dr.name === pattern);
 
-                if (dronesFiltered.length === constants.zero) {
-                    dronesFiltered = null;
-                }
+                    if (dronesFiltered.length === constants.zero) {
+                        dronesFiltered = null;
+                    }
 
-                res.render('home/search', {
-                    dronesFiltered,
-                    user: req.user
+                    res.status(200).render('home/search', {
+                        dronesFiltered,
+                        user: req.user
+                    });
+                })
+                .catch(err => {
+                    res.status(500)
+                        .send(err);
                 });
-            });
         }
     };
 };
