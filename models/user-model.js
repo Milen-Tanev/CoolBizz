@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true,
-        match: [/^[A-Z][a-z]{1,10}$/, 'First name must start with a campital letter']
+        match: [/^[A-Z][a-z]{1,10}$/, 'First name must start with a capital letter']
     },
     lastName: {
         type: String,
@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
     phoneNumber: {
         type: String,
         required: true,
-        match: [/^\+\d{12}$/, 'Phone numbwer must start with +359']
+        match: [/^\+\d{12}$/, 'Phone number must start with +359']
     },
     role: {
         type: String,
