@@ -1,28 +1,29 @@
 extends ../_layout
 
 block content
-    .container
-        .row-fluid
-            .span8
-                h3 User name:&nbsp;
-                    span= user.username
-                h5
-                    strong Name:&nbsp;
-                    span= user.firstName + ' ' + user.lastName
-                h5
-                    strong Email:&nbsp;
-                    span= user.email
-                h5
-                    strong Phone number:&nbsp;
-                    span= user.phoneNumber
-            .span2
-                .btn-group
-                    ul
-                        li
-                            a(href="/modify-profile")
-                                        button.btn.btn-success.btn-lg
-                                            | Modify Profile
-                        li
-                            a(href="/delete-profile")
-                                        button.btn.btn-danger.btn-lg
-                                            | Delete Profile
+    if user
+        .container
+            .row-fluid
+                .span8
+                    h3 User name:&nbsp;
+                        span= user.username
+                    h5
+                        strong Name:&nbsp;
+                        span= user.firstName + ' ' + user.lastName
+                    h5
+                        strong Email:&nbsp;
+                        span= user.email
+                    h5
+                        strong Phone number:&nbsp;
+                        span= user.phoneNumber
+                .span2
+                    .btn-group
+                        ul
+                            li
+                                a(href="/modify-profile")
+                                            button.btn.btn-success.btn-lg
+                                                | Modify Profile
+                            li
+                                a(href="/delete-profile")
+                                            button.btn.btn-danger.btn-lg
+                                                | Delete Profile
