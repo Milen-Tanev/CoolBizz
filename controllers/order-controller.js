@@ -23,7 +23,7 @@ module.exports = function(data) {
 
             data.createOrder(orderType, startDate, endDate, userId)
                 .then(() => {
-                    return res.status(200)
+                    return res.status(300)
                         .redirect('/');
                 })
                 .catch(err => {

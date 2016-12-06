@@ -7,7 +7,7 @@ module.exports = function(models) {
     } = models.Order;
 
     return {
-        createOrder( orderType, startDate, endDate, userId ) {
+        createOrder(orderType, startDate, endDate, userId) {
 
             let order = new Order({ orderType, startDate, endDate, userId });
 
@@ -24,7 +24,7 @@ module.exports = function(models) {
         getAllOrders(userId) {
             return new Promise((resolve, reject) => {
                 Order.find({
-                    userId: userId
+                    userId
                 }, (err, orders) => {
                     if (err) {
                         return reject(err);

@@ -15,11 +15,12 @@ module.exports = function(data) {
             } = req.body;
             data.createUser(username, password, firstName, lastName, email, phoneNumber)
                 .then(() => {
-                    return res.status(200).redirect('/sign-in');
+                    return res.status(300).redirect('/sign-in');
                 })
                 .catch(err => {
                     errorLogger(err);
-                    res.status(200).status(constants.invalidInputServerResponse).send('Please enter valid data');
+                    res.status(200).status(constants.invalidInputServerResponse)
+                        .send('Please enter valid data');
                 });
         },
         signOut(req, res) {
@@ -62,7 +63,7 @@ module.exports = function(data) {
                     res.status(200).redirect('/');
                 })
                 .catch(err => {
-                    res.status(500)
+                    res.status(400)
                         .send(err);
                 });
         },
@@ -90,12 +91,12 @@ module.exports = function(data) {
             data.getAllOrders(userId)
                 .then(orders => {
                     res.status(200).render('user-history', {
-                        orders: orders,
+                        orders,
                         user: req.user
                     });
                 })
                 .catch(err => {
-                    res.status(500)
+                    res.status(400)
                         .send(err);
                 });
         }

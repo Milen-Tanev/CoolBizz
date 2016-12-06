@@ -1,5 +1,5 @@
 const express = require('express');
-// const passport = require('passport');
+
 let router = express.Router();
 
 module.exports = function(app, data) {

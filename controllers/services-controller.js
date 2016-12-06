@@ -15,7 +15,7 @@ module.exports = function(data) {
                     if (role === 'admin' && isDeleted.toString() === 'false') {
                         data.createService(name)
                             .then(() => {
-                                return res.status(200).redirect('/services');
+                                return res.status(300).redirect('/services');
                             });
                     } else {
                         return res.status(constants.notAuthorizedServerResponse).send('You are not autorized for creating new services');
@@ -23,7 +23,8 @@ module.exports = function(data) {
                 })
                 .catch(err => {
                     errorLogger(err);
-                    res.status(200).status(constants.invalidInputServerResponse).send('Please enter valid data');
+                    res.status(200).status(constants.invalidInputServerResponse)
+                        .send('Please enter valid data');
                 });
         },
         getAllServices(req, res) {

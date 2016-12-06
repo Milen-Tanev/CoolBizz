@@ -46,7 +46,7 @@ module.exports = function(models) {
                         errorLogger(err);
                         return reject(err);
                     }
-                    // console.log(drones);
+
                     return resolve(drones);
                 });
             });

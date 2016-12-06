@@ -28,22 +28,6 @@ module.exports = {
         let sampleInitialData = require('./initialData');
 
 
-        // test to see if DB is working
-        // const droneSchema = mongoose.Schema({
-        //     model: String
-        // });
-        // const modelName = 'FlyingWarior';
-
-        // const Drone = mongoose.model(modelName, droneSchema);
-
-        // const someDrone = new Drone({
-        //     model: 'B52'
-        // });
-        // someDrone.save((err, entry, numAffected) => {
-        //     console.log(entry);
-        //     console.log(numAffected);
-        // });
-
         return db;
     }
 };
